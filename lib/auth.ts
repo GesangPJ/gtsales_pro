@@ -13,6 +13,16 @@ export const auth = betterAuth({
  emailAndPassword: { 
         enabled: true, 
   },
+  user: {
+    additionalFields: {
+      tipe: {
+        type: "string",      // atau "enum" kalau pakai Prisma enum
+        required: true,
+        defaultValue: "user", // default user biasa
+        input: true,         // boleh diisi saat signUp
+      },
+    },
+  },
   plugins: [ 
         jwt(),
         captcha({ 
