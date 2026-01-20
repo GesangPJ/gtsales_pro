@@ -1,7 +1,10 @@
 "use client"
 
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+import { baseUrl } from "@/lib/base-url"
+
 import {
-  IconCreditCard,
   IconDotsVertical,
   IconLogout,
   IconUserCircle,
@@ -39,6 +42,22 @@ export function NavUser({
     avatar: string
   }
 }) {
+  const router = useRouter()
+
+  async function handleLogout() {
+    const res = await fetch(`${baseUrl}/api/logout`, {
+      method: "POST",
+    })
+
+    if (!res.ok) {
+      toast.error("Gagal keluar")
+      return
+    }
+
+    toast.success("Berhasil keluar")
+    router.replace("/")
+  }
+
   const { isMobile } = useSidebar()
 
   return (
@@ -99,7 +118,7 @@ export function NavUser({
             </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <IconLogout />
               Keluar
             </DropdownMenuItem>
