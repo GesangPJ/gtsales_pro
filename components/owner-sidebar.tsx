@@ -37,12 +37,6 @@ import {
 } from "@/components/ui/sidebar"
 
 const data = {
-  user: {
-    name: "Admin",
-    email: "admin@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  
   navMain: [
     {
       title: "Kasir",
@@ -113,33 +107,36 @@ const data = {
       url: "/laporan/pembelian",
       icon: IconChartHistogram,
     },
-    {
-      title: "Pengaturan Toko",
-      url: "/toko/pengaturan",
-      icon: IconSettings,
-    },
 
   ],
   navSecondary: [
     
     {
-      title: "Pengaturan",
+      title: "Pengaturan Toko",
       url: "/pengaturan",
       icon: IconSettings,
     },
-    {
-      title: "Panduan",
-      url: "#",
-      icon: IconHelp,
-    },
+    // {
+    //   title: "Panduan",
+    //   url: "#",
+    //   icon: IconHelp,
+    // },
   ],
 }
 
 import { AppInfo } from "./app-info"
 
-export function OwnerSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface OwnerSidebarProps {
+  user: {
+    name: string
+    email: string
+    avatar: string
+  }
+}
+
+export function OwnerSidebar({user}: OwnerSidebarProps ) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -166,9 +163,10 @@ export function OwnerSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
+          <NavSecondary items={data.navSecondary} className="mt-10px" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   )
