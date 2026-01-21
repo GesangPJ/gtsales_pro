@@ -16,8 +16,8 @@ export async function POST(req: NextRequest){
                hargajual,
                hargabeli,
                idkategori,
-               stokbarang,
-               barcodebarang,
+               stokproduk,
+               barcodeproduk,
                keterangan,
                jenisproduk,
         } = body
@@ -31,9 +31,9 @@ export async function POST(req: NextRequest){
 
     const harga_beli = parseInt(hargabeli as string)
     const harga_jual = parseInt(hargajual as string)
-    const kategoriId = parseInt(idkategori as any)
-    const stok = parseInt(stokbarang)
-    const barcode = barcodebarang as string
+    const kategoriId = parseInt(idkategori as string)
+    const stok = parseInt(stokproduk)
+    const barcode = barcodeproduk as string
     const jenis = jenisproduk as string
 
     const tambahProduk = await prisma.produk.create({
