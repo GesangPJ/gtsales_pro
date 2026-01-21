@@ -145,6 +145,7 @@ export const PembelianScalarFieldEnum = {
   status: 'status',
   metode: 'metode',
   jumlahtotal: 'jumlahtotal',
+  biayakirim: 'biayakirim',
   distributorId: 'distributorId',
   userId: 'userId',
   createdAt: 'createdAt',
