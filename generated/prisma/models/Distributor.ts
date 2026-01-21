@@ -241,6 +241,7 @@ export type DistributorWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Distributor"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Distributor"> | Date | string
   produk?: Prisma.ProdukListRelationFilter
+  pembelian?: Prisma.PembelianListRelationFilter
 }
 
 export type DistributorOrderByWithRelationInput = {
@@ -253,6 +254,7 @@ export type DistributorOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   produk?: Prisma.ProdukOrderByRelationAggregateInput
+  pembelian?: Prisma.PembelianOrderByRelationAggregateInput
 }
 
 export type DistributorWhereUniqueInput = Prisma.AtLeast<{
@@ -268,6 +270,7 @@ export type DistributorWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Distributor"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Distributor"> | Date | string
   produk?: Prisma.ProdukListRelationFilter
+  pembelian?: Prisma.PembelianListRelationFilter
 }, "id">
 
 export type DistributorOrderByWithAggregationInput = {
@@ -309,6 +312,7 @@ export type DistributorCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   produk?: Prisma.ProdukCreateNestedManyWithoutDistributorInput
+  pembelian?: Prisma.PembelianCreateNestedManyWithoutDistributorInput
 }
 
 export type DistributorUncheckedCreateInput = {
@@ -321,6 +325,7 @@ export type DistributorUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   produk?: Prisma.ProdukUncheckedCreateNestedManyWithoutDistributorInput
+  pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutDistributorInput
 }
 
 export type DistributorUpdateInput = {
@@ -332,6 +337,7 @@ export type DistributorUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   produk?: Prisma.ProdukUpdateManyWithoutDistributorNestedInput
+  pembelian?: Prisma.PembelianUpdateManyWithoutDistributorNestedInput
 }
 
 export type DistributorUncheckedUpdateInput = {
@@ -344,6 +350,7 @@ export type DistributorUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   produk?: Prisma.ProdukUncheckedUpdateManyWithoutDistributorNestedInput
+  pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutDistributorNestedInput
 }
 
 export type DistributorCreateManyInput = {
@@ -440,6 +447,22 @@ export type DistributorUpdateOneWithoutProdukNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DistributorUpdateToOneWithWhereWithoutProdukInput, Prisma.DistributorUpdateWithoutProdukInput>, Prisma.DistributorUncheckedUpdateWithoutProdukInput>
 }
 
+export type DistributorCreateNestedOneWithoutPembelianInput = {
+  create?: Prisma.XOR<Prisma.DistributorCreateWithoutPembelianInput, Prisma.DistributorUncheckedCreateWithoutPembelianInput>
+  connectOrCreate?: Prisma.DistributorCreateOrConnectWithoutPembelianInput
+  connect?: Prisma.DistributorWhereUniqueInput
+}
+
+export type DistributorUpdateOneWithoutPembelianNestedInput = {
+  create?: Prisma.XOR<Prisma.DistributorCreateWithoutPembelianInput, Prisma.DistributorUncheckedCreateWithoutPembelianInput>
+  connectOrCreate?: Prisma.DistributorCreateOrConnectWithoutPembelianInput
+  upsert?: Prisma.DistributorUpsertWithoutPembelianInput
+  disconnect?: Prisma.DistributorWhereInput | boolean
+  delete?: Prisma.DistributorWhereInput | boolean
+  connect?: Prisma.DistributorWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DistributorUpdateToOneWithWhereWithoutPembelianInput, Prisma.DistributorUpdateWithoutPembelianInput>, Prisma.DistributorUncheckedUpdateWithoutPembelianInput>
+}
+
 export type DistributorCreateWithoutProdukInput = {
   nama: string
   alamat?: string | null
@@ -448,6 +471,7 @@ export type DistributorCreateWithoutProdukInput = {
   keterangan?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  pembelian?: Prisma.PembelianCreateNestedManyWithoutDistributorInput
 }
 
 export type DistributorUncheckedCreateWithoutProdukInput = {
@@ -459,6 +483,7 @@ export type DistributorUncheckedCreateWithoutProdukInput = {
   keterangan?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutDistributorInput
 }
 
 export type DistributorCreateOrConnectWithoutProdukInput = {
@@ -485,6 +510,7 @@ export type DistributorUpdateWithoutProdukInput = {
   keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pembelian?: Prisma.PembelianUpdateManyWithoutDistributorNestedInput
 }
 
 export type DistributorUncheckedUpdateWithoutProdukInput = {
@@ -496,6 +522,69 @@ export type DistributorUncheckedUpdateWithoutProdukInput = {
   keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutDistributorNestedInput
+}
+
+export type DistributorCreateWithoutPembelianInput = {
+  nama: string
+  alamat?: string | null
+  notelp?: string | null
+  email?: string | null
+  keterangan?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  produk?: Prisma.ProdukCreateNestedManyWithoutDistributorInput
+}
+
+export type DistributorUncheckedCreateWithoutPembelianInput = {
+  id?: number
+  nama: string
+  alamat?: string | null
+  notelp?: string | null
+  email?: string | null
+  keterangan?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  produk?: Prisma.ProdukUncheckedCreateNestedManyWithoutDistributorInput
+}
+
+export type DistributorCreateOrConnectWithoutPembelianInput = {
+  where: Prisma.DistributorWhereUniqueInput
+  create: Prisma.XOR<Prisma.DistributorCreateWithoutPembelianInput, Prisma.DistributorUncheckedCreateWithoutPembelianInput>
+}
+
+export type DistributorUpsertWithoutPembelianInput = {
+  update: Prisma.XOR<Prisma.DistributorUpdateWithoutPembelianInput, Prisma.DistributorUncheckedUpdateWithoutPembelianInput>
+  create: Prisma.XOR<Prisma.DistributorCreateWithoutPembelianInput, Prisma.DistributorUncheckedCreateWithoutPembelianInput>
+  where?: Prisma.DistributorWhereInput
+}
+
+export type DistributorUpdateToOneWithWhereWithoutPembelianInput = {
+  where?: Prisma.DistributorWhereInput
+  data: Prisma.XOR<Prisma.DistributorUpdateWithoutPembelianInput, Prisma.DistributorUncheckedUpdateWithoutPembelianInput>
+}
+
+export type DistributorUpdateWithoutPembelianInput = {
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  produk?: Prisma.ProdukUpdateManyWithoutDistributorNestedInput
+}
+
+export type DistributorUncheckedUpdateWithoutPembelianInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  produk?: Prisma.ProdukUncheckedUpdateManyWithoutDistributorNestedInput
 }
 
 
@@ -505,10 +594,12 @@ export type DistributorUncheckedUpdateWithoutProdukInput = {
 
 export type DistributorCountOutputType = {
   produk: number
+  pembelian: number
 }
 
 export type DistributorCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   produk?: boolean | DistributorCountOutputTypeCountProdukArgs
+  pembelian?: boolean | DistributorCountOutputTypeCountPembelianArgs
 }
 
 /**
@@ -528,6 +619,13 @@ export type DistributorCountOutputTypeCountProdukArgs<ExtArgs extends runtime.Ty
   where?: Prisma.ProdukWhereInput
 }
 
+/**
+ * DistributorCountOutputType without action
+ */
+export type DistributorCountOutputTypeCountPembelianArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PembelianWhereInput
+}
+
 
 export type DistributorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -539,6 +637,7 @@ export type DistributorSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   createdAt?: boolean
   updatedAt?: boolean
   produk?: boolean | Prisma.Distributor$produkArgs<ExtArgs>
+  pembelian?: boolean | Prisma.Distributor$pembelianArgs<ExtArgs>
   _count?: boolean | Prisma.DistributorCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["distributor"]>
 
@@ -578,6 +677,7 @@ export type DistributorSelectScalar = {
 export type DistributorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nama" | "alamat" | "notelp" | "email" | "keterangan" | "createdAt" | "updatedAt", ExtArgs["result"]["distributor"]>
 export type DistributorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   produk?: boolean | Prisma.Distributor$produkArgs<ExtArgs>
+  pembelian?: boolean | Prisma.Distributor$pembelianArgs<ExtArgs>
   _count?: boolean | Prisma.DistributorCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DistributorIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -587,6 +687,7 @@ export type $DistributorPayload<ExtArgs extends runtime.Types.Extensions.Interna
   name: "Distributor"
   objects: {
     produk: Prisma.$ProdukPayload<ExtArgs>[]
+    pembelian: Prisma.$PembelianPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -992,6 +1093,7 @@ readonly fields: DistributorFieldRefs;
 export interface Prisma__DistributorClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   produk<T extends Prisma.Distributor$produkArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Distributor$produkArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pembelian<T extends Prisma.Distributor$pembelianArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Distributor$pembelianArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PembelianPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1436,6 +1538,30 @@ export type Distributor$produkArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.ProdukScalarFieldEnum | Prisma.ProdukScalarFieldEnum[]
+}
+
+/**
+ * Distributor.pembelian
+ */
+export type Distributor$pembelianArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Pembelian
+   */
+  select?: Prisma.PembelianSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Pembelian
+   */
+  omit?: Prisma.PembelianOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PembelianInclude<ExtArgs> | null
+  where?: Prisma.PembelianWhereInput
+  orderBy?: Prisma.PembelianOrderByWithRelationInput | Prisma.PembelianOrderByWithRelationInput[]
+  cursor?: Prisma.PembelianWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PembelianScalarFieldEnum | Prisma.PembelianScalarFieldEnum[]
 }
 
 /**
