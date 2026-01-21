@@ -336,6 +336,14 @@ export type KategoriScalarRelationFilter = {
   isNot?: Prisma.KategoriWhereInput
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type KategoriCreateNestedOneWithoutProdukInput = {
   create?: Prisma.XOR<Prisma.KategoriCreateWithoutProdukInput, Prisma.KategoriUncheckedCreateWithoutProdukInput>
   connectOrCreate?: Prisma.KategoriCreateOrConnectWithoutProdukInput
