@@ -84,6 +84,7 @@ model Distributor{
   updatedAt   DateTime  @updatedAt
 
   produk      Produk[]
+  pembelian   Pembelian[]
 
   @@index([nama])
   @@map("distributor")
@@ -102,11 +103,13 @@ model Pembelian{
   status      StatusPembelian
   metode      MetodeBayar
   jumlahtotal Int
+  biayakirim  Int
   distributorId Int?
   userId      String
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 
+  distributor Distributor?  @relation(fields: [distributorId], references: [id], onDelete: Cascade)
   user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   pembeliandetail PembelianDetail[]
 
