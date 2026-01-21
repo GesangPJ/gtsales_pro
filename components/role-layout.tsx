@@ -11,13 +11,17 @@ import { SiteHeader } from "@/components/site-header"
 import { AdminSidebar } from './admin-sidebar'
 import { UserSidebar } from './user-sidebar'
 import { OwnerSidebar } from './owner-sidebar'
+import { headers } from "next/headers"
 
 interface Props {
     children?: ReactNode
 }
 
 export async function RoleLayout({children}: Props) {
-  const session = await auth.api.getSession()
+  const session = await auth.api.getSession({
+    headers: await headers(), // ⬅️ WAJIB
+  })
+
   const tipe = session?.user?.tipe
 
   return (
