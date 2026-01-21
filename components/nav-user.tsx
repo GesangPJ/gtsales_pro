@@ -32,15 +32,16 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavUser({
-  user,
-}: {
+interface NavUserProps {
   user: {
     name: string
     email: string
     avatar: string
   }
-}) {
+}
+
+export function NavUser({ user }: NavUserProps) {
+  
   const router = useRouter()
 
   async function handleLogout() {
@@ -104,10 +105,6 @@ export function NavUser({
                 Akun
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <IconSettings />
-                Pengaturan
-              </DropdownMenuItem>
-              <DropdownMenuItem>
               <IconHelp/>
               Panduan
             </DropdownMenuItem>
@@ -117,7 +114,6 @@ export function NavUser({
               <IconLogout />
               Keluar
             </DropdownMenuItem>
-            
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
