@@ -6,7 +6,7 @@ import { ArrowUpDown} from "lucide-react"
 
 export type Kategori = {
   id: number
-  nama: string
+  nama_kategori: string
 }
 
 export const columns: ColumnDef<Kategori>[] = [
@@ -17,7 +17,9 @@ export const columns: ColumnDef<Kategori>[] = [
     
   },
   {
-    accessorKey: "nama",
+    accessorKey: "nama_kategori",
+    size:50,
+    minSize:32,
     header: ({ column }) => (
       < Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         className="h-8 px-2"
@@ -28,7 +30,7 @@ export const columns: ColumnDef<Kategori>[] = [
     ),
     cell: ({ row }) => (
       <div className="capitalize">
-        {row.getValue("nama")}
+        {row.getValue("nama_kategori")}
       </div>
     ),
   },
