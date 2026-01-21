@@ -1,8 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { toast } from "sonner"
-import { baseUrl } from "@/lib/base-url"
+import { authClient } from "@/lib/auth-client"
 
 import {
   IconDotsVertical,
@@ -45,17 +44,13 @@ export function NavUser({
   const router = useRouter()
 
   async function handleLogout() {
-    const res = await fetch(`${baseUrl}/api/logout`, {
-      method: "POST",
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/"); // redirect ke halaman login
+        },
+      },
     })
-
-    if (!res.ok) {
-      toast.error("Gagal keluar")
-      return
-    }
-
-    toast.success("Berhasil keluar")
-    router.replace("/")
   }
 
   const { isMobile } = useSidebar()
