@@ -18,6 +18,7 @@ import {
   IconLayoutDashboard,
   IconReceipt,
   IconChartHistogram,
+   IconTablePlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -40,7 +41,7 @@ const data = {
   navMain: [
     {
       title: "Kasir",
-      url: "/",
+      url: "/kasir",
       icon: IconCashRegister,
     },
     {
@@ -64,25 +65,31 @@ const data = {
   ],
   navTambah:[
     {
-      title: "Tabel Barang",
-      url: "/data-barang",
+      title: "Daftar Produk",
+      url: "/produk",
       icon: IconTableFilled,
     },
     {
-      title: "Tambah Barang",
-      url: "/tambah-barang",
+      title: "Tambah Produk",
+      url: "/produk/tambah-produk",
       icon: IconCubePlus,
     },
     
     {
-      title: "Stok Barang",
-      url: "/stok-barang",
+      title: "Stok Produk",
+      url: "/produk/stok",
       icon: IconStack3,
     },
     {
-      title: "Kategori Barang",
-      url: "/kategori-barang",
+      title: "Kategori Produk",
+      url: "/kategori",
       icon: IconCategoryPlus,
+    },
+    {
+      title: "Tambah Kategori",
+      url:"/kategori/tambah-kategori",
+      icon: IconTablePlus,
+
     },
 
   ],
@@ -116,11 +123,11 @@ const data = {
       url: "/pengaturan",
       icon: IconSettings,
     },
-    // {
-    //   title: "Panduan",
-    //   url: "#",
-    //   icon: IconHelp,
-    // },
+    {
+      title: "Panduan",
+      url: "#",
+      icon: IconHelp,
+    },
   ],
 }
 
