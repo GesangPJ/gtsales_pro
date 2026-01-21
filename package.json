@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "buat-admin":"bun run scripts/buat-akun-admin.ts",
+    "seed-kategori":"bun run scripts/seedKategori.ts",
     "lint": "eslint"
   },
   "type": "module",
