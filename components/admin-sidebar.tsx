@@ -19,7 +19,6 @@ import {
 import Link from "next/link"
 import { NavUser } from "./nav-user"
 
-
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import {
@@ -129,9 +128,17 @@ const data = {
 
 import { AppInfo } from "./app-info"
 
-export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AdminSidebarProps {
+  user: {
+    name: string
+    email: string
+    avatar: string
+  }
+}
+
+export function AdminSidebar({ user }: AdminSidebarProps) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -160,7 +167,7 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
           <SidebarSeparator />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   )
