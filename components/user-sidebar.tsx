@@ -38,7 +38,7 @@ const data = {
   navMain: [
     {
       title: "Kasir",
-      url: "/",
+      url: "/kasir",
       icon: IconCashRegister,
     },
     {
@@ -62,23 +62,18 @@ const data = {
   ],
   navTambah:[
     {
-      title: "Tabel Barang",
-      url: "/data-barang",
+      title: "Daftar Produk",
+      url: "/produk",
       icon: IconTableFilled,
     },
-    // {
-    //   title: "Tambah Barang",
-    //   url: "/tambah-barang",
-    //   icon: IconCubePlus,
-    // },
     {
-      title: "Stok Barang",
-      url: "/stok-barang",
+      title: "Stok Produk",
+      url: "/produk/stok",
       icon: IconStack3,
     },
     {
-      title: "Kategori Barang",
-      url: "/kategori-barang",
+      title: "Kategori Produk",
+      url: "/kategori",
       icon: IconCategoryPlus,
     },
 
@@ -90,7 +85,7 @@ const data = {
       icon: IconTableFilled,
     },
     {
-      title: "Pembelian Barang",
+      title: "Pembelian Produk",
       url: "/buat-pembelian",
       icon: IconTruckLoading,
     },
@@ -139,12 +134,10 @@ export function UserSidebar({user}: UserSidebarProps) {
         <SidebarSeparator />
         <NavMain items={data.navMain} />
         <SidebarSeparator />
-        {/* <span className="px-2">Barang</span> */}
         <NavSecondary items={data.navTambah} className="mt-10px" />
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
-        {/* <NavSecondary items={data.navSecondary} className="mt-50px" /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />
