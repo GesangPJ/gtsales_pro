@@ -34,11 +34,6 @@ import {
 } from "@/components/ui/sidebar"
 
 const data = {
-  user: {
-    name: "User",
-    email: "user@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   
   navMain: [
     {
@@ -112,9 +107,17 @@ const data = {
 
 import { AppInfo } from "./app-info"
 
-export function UserSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface UserSidebarProps {
+  user: {
+    name: string
+    email: string
+    avatar: string
+  }
+}
+
+export function UserSidebar({user}: UserSidebarProps) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -141,10 +144,10 @@ export function UserSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
-        <NavSecondary items={data.navSecondary} className="mt-50px" />
+        {/* <NavSecondary items={data.navSecondary} className="mt-50px" /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   )

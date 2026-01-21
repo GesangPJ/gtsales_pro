@@ -17,7 +17,7 @@ model User {
   emailVerified Boolean   @default(false)
   alamat        String?
   notelp        String?
-  tipe          Int       @default(3)  // 1: owner , 2: admin, 3: user
+  tipe          String       @default("user")  // owner, admin, user
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt

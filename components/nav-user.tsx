@@ -1,7 +1,9 @@
 "use client"
 
+import { useRouter } from "next/navigation"
+import { authClient } from "@/lib/auth-client"
+
 import {
-  IconCreditCard,
   IconDotsVertical,
   IconLogout,
   IconUserCircle,
@@ -30,15 +32,28 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-export function NavUser({
-  user,
-}: {
+interface NavUserProps {
   user: {
     name: string
     email: string
     avatar: string
   }
-}) {
+}
+
+export function NavUser({ user }: NavUserProps) {
+  
+  const router = useRouter()
+
+  async function handleLogout() {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/"); // redirect ke halaman login
+        },
+      },
+    })
+  }
+
   const { isMobile } = useSidebar()
 
   return (
@@ -90,20 +105,15 @@ export function NavUser({
                 Akun
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <IconSettings />
-                Pengaturan
-              </DropdownMenuItem>
-              <DropdownMenuItem>
               <IconHelp/>
               Panduan
             </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <IconLogout />
               Keluar
             </DropdownMenuItem>
-            
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

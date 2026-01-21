@@ -1,3 +1,6 @@
+
+// Sidebar Owner
+
 "use client"
 
 import * as React from "react"
@@ -19,6 +22,7 @@ import {
 import Link from "next/link"
 import { NavUser } from "./nav-user"
 
+
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import {
@@ -33,12 +37,6 @@ import {
 } from "@/components/ui/sidebar"
 
 const data = {
-  user: {
-    name: "Admin",
-    email: "admin@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  
   navMain: [
     {
       title: "Kasir",
@@ -91,44 +89,44 @@ const data = {
   navVendor:[
     {
       title: "Daftar Pembelian",
-      url: "/pembelian/data-pembelian",
+      url: "/daftar-pembelian",
       icon: IconTableFilled,
     },
     {
       title: "Pembelian Barang",
-      url: "/pembelian",
+      url: "/buat-pembelian",
       icon: IconTruckLoading,
     },
     {
       title: "Status Pembelian",
-      url: "/pembelian/status-pembelian",
+      url: "/status-pembelian",
       icon: IconReceipt,
     },
     {
       title: "Laporan Pembelian",
-      url: "/pembelian/laporan-pembelian",
+      url: "/laporan/pembelian",
       icon: IconChartHistogram,
-    }
+    },
 
   ],
   navSecondary: [
     
     {
-      title: "Pengaturan",
+      title: "Pengaturan Toko",
       url: "/pengaturan",
       icon: IconSettings,
     },
-    {
-      title: "Panduan",
-      url: "#",
-      icon: IconHelp,
-    },
+    // {
+    //   title: "Panduan",
+    //   url: "#",
+    //   icon: IconHelp,
+    // },
   ],
 }
 
 import { AppInfo } from "./app-info"
 
-interface AdminSidebarProps {
+interface OwnerSidebarProps {
   user: {
     name: string
     email: string
@@ -136,7 +134,7 @@ interface AdminSidebarProps {
   }
 }
 
-export function AdminSidebar({ user }: AdminSidebarProps) {
+export function OwnerSidebar({user}: OwnerSidebarProps ) {
   return (
     <Sidebar collapsible="offcanvas">
       <SidebarHeader>
@@ -165,6 +163,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
+          <NavSecondary items={data.navSecondary} className="mt-10px" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />
@@ -172,3 +171,4 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
     </Sidebar>
   )
 }
+
