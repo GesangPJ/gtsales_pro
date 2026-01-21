@@ -48,20 +48,18 @@ model Kategori {
 model Produk {
   id            Int     @id  @default(autoincrement())
   nama          String
-  barcode       String  @unique
+  barcode       String?  @unique
   harga_jual    Int
   harga_beli    Int
   stok          Int
   jenis         String   @default("BARANG")
   keterangan    String?
   kategoriId    Int
-  distributorId Int?
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
   kategori      Kategori  @relation(fields: [kategoriId], references: [id], onDelete: Cascade)
-  distributor   Distributor? @relation(fields: [distributorId], references: [id], onDelete: Cascade)
   pembeliandetal  PembelianDetail[]
   penjualandetail PenjualanDetail[]
 
@@ -83,7 +81,6 @@ model Distributor{
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
-  produk      Produk[]
   pembelian   Pembelian[]
 
   @@index([nama])
