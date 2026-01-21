@@ -20,18 +20,8 @@ export type UserModel = runtime.Types.Result.DefaultSelection<Prisma.$UserPayloa
 
 export type AggregateUser = {
   _count: UserCountAggregateOutputType | null
-  _avg: UserAvgAggregateOutputType | null
-  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
-}
-
-export type UserAvgAggregateOutputType = {
-  tipe: number | null
-}
-
-export type UserSumAggregateOutputType = {
-  tipe: number | null
 }
 
 export type UserMinAggregateOutputType = {
@@ -41,7 +31,7 @@ export type UserMinAggregateOutputType = {
   emailVerified: boolean | null
   alamat: string | null
   notelp: string | null
-  tipe: number | null
+  tipe: string | null
   image: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -54,7 +44,7 @@ export type UserMaxAggregateOutputType = {
   emailVerified: boolean | null
   alamat: string | null
   notelp: string | null
-  tipe: number | null
+  tipe: string | null
   image: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -74,14 +64,6 @@ export type UserCountAggregateOutputType = {
   _all: number
 }
 
-
-export type UserAvgAggregateInputType = {
-  tipe?: true
-}
-
-export type UserSumAggregateInputType = {
-  tipe?: true
-}
 
 export type UserMinAggregateInputType = {
   id?: true
@@ -161,18 +143,6 @@ export type UserAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: UserAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: UserSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: UserMinAggregateInputType
@@ -203,8 +173,6 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: UserCountAggregateInputType | true
-  _avg?: UserAvgAggregateInputType
-  _sum?: UserSumAggregateInputType
   _min?: UserMinAggregateInputType
   _max?: UserMaxAggregateInputType
 }
@@ -216,13 +184,11 @@ export type UserGroupByOutputType = {
   emailVerified: boolean
   alamat: string | null
   notelp: string | null
-  tipe: number
+  tipe: string
   image: string | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
-  _avg: UserAvgAggregateOutputType | null
-  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
 }
@@ -252,7 +218,7 @@ export type UserWhereInput = {
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   alamat?: Prisma.StringNullableFilter<"User"> | string | null
   notelp?: Prisma.StringNullableFilter<"User"> | string | null
-  tipe?: Prisma.IntFilter<"User"> | number
+  tipe?: Prisma.StringFilter<"User"> | string
   image?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -291,7 +257,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   emailVerified?: Prisma.BoolFilter<"User"> | boolean
   alamat?: Prisma.StringNullableFilter<"User"> | string | null
   notelp?: Prisma.StringNullableFilter<"User"> | string | null
-  tipe?: Prisma.IntFilter<"User"> | number
+  tipe?: Prisma.StringFilter<"User"> | string
   image?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -314,10 +280,8 @@ export type UserOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
-  _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
-  _sum?: Prisma.UserSumOrderByAggregateInput
 }
 
 export type UserScalarWhereWithAggregatesInput = {
@@ -330,7 +294,7 @@ export type UserScalarWhereWithAggregatesInput = {
   emailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   alamat?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   notelp?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  tipe?: Prisma.IntWithAggregatesFilter<"User"> | number
+  tipe?: Prisma.StringWithAggregatesFilter<"User"> | string
   image?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -343,7 +307,7 @@ export type UserCreateInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -361,7 +325,7 @@ export type UserUncheckedCreateInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -379,7 +343,7 @@ export type UserUpdateInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -397,7 +361,7 @@ export type UserUncheckedUpdateInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -415,7 +379,7 @@ export type UserCreateManyInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -428,7 +392,7 @@ export type UserUpdateManyMutationInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -441,7 +405,7 @@ export type UserUncheckedUpdateManyInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -458,10 +422,6 @@ export type UserCountOrderByAggregateInput = {
   image?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-}
-
-export type UserAvgOrderByAggregateInput = {
-  tipe?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -490,10 +450,6 @@ export type UserMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type UserSumOrderByAggregateInput = {
-  tipe?: Prisma.SortOrder
-}
-
 export type UserScalarRelationFilter = {
   is?: Prisma.UserWhereInput
   isNot?: Prisma.UserWhereInput
@@ -509,14 +465,6 @@ export type BoolFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -600,7 +548,7 @@ export type UserCreateWithoutPembelianInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -617,7 +565,7 @@ export type UserUncheckedCreateWithoutPembelianInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -650,7 +598,7 @@ export type UserUpdateWithoutPembelianInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -667,7 +615,7 @@ export type UserUncheckedUpdateWithoutPembelianInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -684,7 +632,7 @@ export type UserCreateWithoutPenjualanInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -701,7 +649,7 @@ export type UserUncheckedCreateWithoutPenjualanInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -734,7 +682,7 @@ export type UserUpdateWithoutPenjualanInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -751,7 +699,7 @@ export type UserUncheckedUpdateWithoutPenjualanInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -768,7 +716,7 @@ export type UserCreateWithoutJurnalInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -785,7 +733,7 @@ export type UserUncheckedCreateWithoutJurnalInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -818,7 +766,7 @@ export type UserUpdateWithoutJurnalInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -835,7 +783,7 @@ export type UserUncheckedUpdateWithoutJurnalInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -852,7 +800,7 @@ export type UserCreateWithoutSessionsInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -869,7 +817,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -902,7 +850,7 @@ export type UserUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -919,7 +867,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -936,7 +884,7 @@ export type UserCreateWithoutAccountsInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -953,7 +901,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   emailVerified?: boolean
   alamat?: string | null
   notelp?: string | null
-  tipe?: number
+  tipe?: string
   image?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -986,7 +934,7 @@ export type UserUpdateWithoutAccountsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1003,7 +951,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tipe?: Prisma.IntFieldUpdateOperationsInput | number
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1166,7 +1114,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     emailVerified: boolean
     alamat: string | null
     notelp: string | null
-    tipe: number
+    tipe: string
     image: string | null
     createdAt: Date
     updatedAt: Date
@@ -1604,7 +1552,7 @@ export interface UserFieldRefs {
   readonly emailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly alamat: Prisma.FieldRef<"User", 'String'>
   readonly notelp: Prisma.FieldRef<"User", 'String'>
-  readonly tipe: Prisma.FieldRef<"User", 'Int'>
+  readonly tipe: Prisma.FieldRef<"User", 'String'>
   readonly image: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
