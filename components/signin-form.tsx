@@ -1,8 +1,7 @@
 
 // Komponen Form Masuk
 'use client'
-import { useState, useRef } from "react"
-import { useRouter } from "next/navigation"
+import { useState} from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -20,58 +19,44 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { AppInfo } from "./app-info"
-import { Turnstile } from '@marsidev/react-turnstile'
 import { toast } from "sonner"
-import { baseUrl } from "@/lib/base-url"
+import { authClient } from "@/lib/auth-client"
 
 type LoginProps = React.HTMLAttributes<HTMLDivElement>
 
 export function LoginForm({ className, ...props }: LoginProps) {
-    const router = useRouter()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [turnstileToken, setTurnstileToken] = useState("")
     const [loading, setLoading] = useState(false)
 
 
-    async function handleSubmit(e: React.FormEvent) {
-  e.preventDefault()
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
 
-  if (!turnstileToken) {
-    toast.error("Selesaikan captcha dulu")
-    return
+    setLoading(true);
+
+    try {
+      await authClient.signIn.email({
+        email,
+        password,
+        callbackURL: "/kasir",
+      });
+
+    toast.success("Login berhasil!");
+
+  } catch (error: any) {
+    console.error("Login error:", error);
+    toast.error(error.message || "Login gagal");
+  } finally {
+    setLoading(false);
   }
-
-  setLoading(true)
-
-  const res = await fetch(`${baseUrl}/api/masuk`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email,
-      password,
-      turnstileToken,
-    }),
-  })
-
-  const data = await res.json()
-  setLoading(false)
-
-  if (!res.ok) {
-    toast.error(data.error ?? "Login gagal")
-    return
-  }
-
-  toast.success("Login berhasil")
-  router.replace("/app/kasir")
 }
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">GTSALES <span className="text-yellow-600 font-bold">PRO</span><AppInfo/></CardTitle>
+          <CardTitle className="text-xl">Selamat Datang</CardTitle>
           <CardDescription>
             Masuk menggunakan Email dan Password anda
           </CardDescription>
@@ -104,20 +89,7 @@ export function LoginForm({ className, ...props }: LoginProps) {
               </Field>
 
               <Field>
-                <Turnstile
-                  siteKey="0x4AAAAAACNa3VJKmiLYiO-S"
-                  options={{
-                    action: 'submit-form',
-                    theme: 'light',
-                    size: 'compact',
-                    language: 'es',
-                }}
-                  onSuccess={(token) => setTurnstileToken(token)}
-                  onError={() => {
-                    setTurnstileToken("")
-                    toast.error("Captcha error, coba lagi")
-                  }}
-                />
+          
               </Field>
 
               <Button
