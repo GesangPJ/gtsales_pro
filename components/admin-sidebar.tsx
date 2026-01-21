@@ -92,22 +92,22 @@ const data = {
   navVendor:[
     {
       title: "Daftar Pembelian",
-      url: "/daftar-pembelian",
+      url: "/pembelian/data-pembelian",
       icon: IconTableFilled,
     },
     {
       title: "Pembelian Barang",
-      url: "/buat-pembelian",
+      url: "/pembelian",
       icon: IconTruckLoading,
     },
     {
       title: "Status Pembelian",
-      url: "/status-pembelian",
+      url: "/pembelian/status-pembelian",
       icon: IconReceipt,
     },
     {
       title: "Laporan Pembelian",
-      url: "/laporan/pembelian",
+      url: "/pembelian/laporan-pembelian",
       icon: IconChartHistogram,
     }
 
