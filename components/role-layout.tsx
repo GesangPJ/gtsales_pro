@@ -19,10 +19,16 @@ interface Props {
 
 export async function RoleLayout({children}: Props) {
   const session = await auth.api.getSession({
-    headers: await headers(), // ⬅️ WAJIB
+    headers: await headers(),
   })
 
   const tipe = session?.user?.tipe
+
+  const user = {
+    name: session?.user?.name ?? "",
+    email: session?.user?.email ?? "",
+    avatar: "/avatars/shadcn.jpg",
+  }
 
   return (
     <SidebarProvider
@@ -31,12 +37,13 @@ export async function RoleLayout({children}: Props) {
         "--header-height": "calc(var(--spacing) * 12)",
       } as React.CSSProperties}
     >
+
       {tipe === "admin" ? (
-      <AdminSidebar />
+      <AdminSidebar user={user} />
     ) : tipe === "owner" ? (
-      <OwnerSidebar />
+      <OwnerSidebar user={user} />
     ) : (
-      <UserSidebar />
+      <UserSidebar user={user} />
     )}
       <SidebarInset>
         <SiteHeader />
