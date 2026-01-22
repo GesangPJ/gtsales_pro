@@ -1600,7 +1600,6 @@ export const ProdukScalarFieldEnum = {
   jenis: 'jenis',
   keterangan: 'keterangan',
   kategoriId: 'kategoriId',
-  distributorId: 'distributorId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
