@@ -69,7 +69,7 @@ const data = {
     },
     {
       title: "Tambah Produk",
-      url: "/produk/tambah-produk",
+      url: "/tambah-produk",
       icon: IconCubePlus,
     },
     
@@ -85,7 +85,7 @@ const data = {
     },
     {
       title: "Tambah Kategori",
-      url:"/kategori/tambah-kategori",
+      url:"/tambah-kategori",
       icon: IconTablePlus,
 
     },
