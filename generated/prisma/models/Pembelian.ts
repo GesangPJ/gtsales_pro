@@ -29,12 +29,14 @@ export type AggregatePembelian = {
 export type PembelianAvgAggregateOutputType = {
   id: number | null
   jumlahtotal: number | null
+  biayakirim: number | null
   distributorId: number | null
 }
 
 export type PembelianSumAggregateOutputType = {
   id: number | null
   jumlahtotal: number | null
+  biayakirim: number | null
   distributorId: number | null
 }
 
@@ -44,6 +46,7 @@ export type PembelianMinAggregateOutputType = {
   status: $Enums.StatusPembelian | null
   metode: $Enums.MetodeBayar | null
   jumlahtotal: number | null
+  biayakirim: number | null
   distributorId: number | null
   userId: string | null
   createdAt: Date | null
@@ -56,6 +59,7 @@ export type PembelianMaxAggregateOutputType = {
   status: $Enums.StatusPembelian | null
   metode: $Enums.MetodeBayar | null
   jumlahtotal: number | null
+  biayakirim: number | null
   distributorId: number | null
   userId: string | null
   createdAt: Date | null
@@ -68,6 +72,7 @@ export type PembelianCountAggregateOutputType = {
   status: number
   metode: number
   jumlahtotal: number
+  biayakirim: number
   distributorId: number
   userId: number
   createdAt: number
@@ -79,12 +84,14 @@ export type PembelianCountAggregateOutputType = {
 export type PembelianAvgAggregateInputType = {
   id?: true
   jumlahtotal?: true
+  biayakirim?: true
   distributorId?: true
 }
 
 export type PembelianSumAggregateInputType = {
   id?: true
   jumlahtotal?: true
+  biayakirim?: true
   distributorId?: true
 }
 
@@ -94,6 +101,7 @@ export type PembelianMinAggregateInputType = {
   status?: true
   metode?: true
   jumlahtotal?: true
+  biayakirim?: true
   distributorId?: true
   userId?: true
   createdAt?: true
@@ -106,6 +114,7 @@ export type PembelianMaxAggregateInputType = {
   status?: true
   metode?: true
   jumlahtotal?: true
+  biayakirim?: true
   distributorId?: true
   userId?: true
   createdAt?: true
@@ -118,6 +127,7 @@ export type PembelianCountAggregateInputType = {
   status?: true
   metode?: true
   jumlahtotal?: true
+  biayakirim?: true
   distributorId?: true
   userId?: true
   createdAt?: true
@@ -217,6 +227,7 @@ export type PembelianGroupByOutputType = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId: number | null
   userId: string
   createdAt: Date
@@ -252,10 +263,12 @@ export type PembelianWhereInput = {
   status?: Prisma.EnumStatusPembelianFilter<"Pembelian"> | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFilter<"Pembelian"> | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFilter<"Pembelian"> | number
+  biayakirim?: Prisma.IntFilter<"Pembelian"> | number
   distributorId?: Prisma.IntNullableFilter<"Pembelian"> | number | null
   userId?: Prisma.StringFilter<"Pembelian"> | string
   createdAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
+  distributor?: Prisma.XOR<Prisma.DistributorNullableScalarRelationFilter, Prisma.DistributorWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   pembeliandetail?: Prisma.PembelianDetailListRelationFilter
 }
@@ -266,10 +279,12 @@ export type PembelianOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  distributor?: Prisma.DistributorOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
   pembeliandetail?: Prisma.PembelianDetailOrderByRelationAggregateInput
 }
@@ -283,10 +298,12 @@ export type PembelianWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumStatusPembelianFilter<"Pembelian"> | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFilter<"Pembelian"> | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFilter<"Pembelian"> | number
+  biayakirim?: Prisma.IntFilter<"Pembelian"> | number
   distributorId?: Prisma.IntNullableFilter<"Pembelian"> | number | null
   userId?: Prisma.StringFilter<"Pembelian"> | string
   createdAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
+  distributor?: Prisma.XOR<Prisma.DistributorNullableScalarRelationFilter, Prisma.DistributorWhereInput> | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   pembeliandetail?: Prisma.PembelianDetailListRelationFilter
 }, "id" | "kode">
@@ -297,6 +314,7 @@ export type PembelianOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -317,6 +335,7 @@ export type PembelianScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumStatusPembelianWithAggregatesFilter<"Pembelian"> | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarWithAggregatesFilter<"Pembelian"> | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntWithAggregatesFilter<"Pembelian"> | number
+  biayakirim?: Prisma.IntWithAggregatesFilter<"Pembelian"> | number
   distributorId?: Prisma.IntNullableWithAggregatesFilter<"Pembelian"> | number | null
   userId?: Prisma.StringWithAggregatesFilter<"Pembelian"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Pembelian"> | Date | string
@@ -328,9 +347,10 @@ export type PembelianCreateInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
-  distributorId?: number | null
+  biayakirim: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  distributor?: Prisma.DistributorCreateNestedOneWithoutPembelianInput
   user: Prisma.UserCreateNestedOneWithoutPembelianInput
   pembeliandetail?: Prisma.PembelianDetailCreateNestedManyWithoutPembelianInput
 }
@@ -341,6 +361,7 @@ export type PembelianUncheckedCreateInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId?: number | null
   userId: string
   createdAt?: Date | string
@@ -353,9 +374,10 @@ export type PembelianUpdateInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
-  distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  distributor?: Prisma.DistributorUpdateOneWithoutPembelianNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutPembelianNestedInput
   pembeliandetail?: Prisma.PembelianDetailUpdateManyWithoutPembelianNestedInput
 }
@@ -366,6 +388,7 @@ export type PembelianUncheckedUpdateInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -379,6 +402,7 @@ export type PembelianCreateManyInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId?: number | null
   userId: string
   createdAt?: Date | string
@@ -390,7 +414,7 @@ export type PembelianUpdateManyMutationInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
-  distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -401,6 +425,7 @@ export type PembelianUncheckedUpdateManyInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -423,6 +448,7 @@ export type PembelianCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -432,6 +458,7 @@ export type PembelianCountOrderByAggregateInput = {
 export type PembelianAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrder
 }
 
@@ -441,6 +468,7 @@ export type PembelianMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -453,6 +481,7 @@ export type PembelianMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -462,6 +491,7 @@ export type PembelianMinOrderByAggregateInput = {
 export type PembelianSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+  biayakirim?: Prisma.SortOrder
   distributorId?: Prisma.SortOrder
 }
 
@@ -512,12 +542,62 @@ export type PembelianUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.PembelianScalarWhereInput | Prisma.PembelianScalarWhereInput[]
 }
 
+export type PembelianCreateNestedManyWithoutDistributorInput = {
+  create?: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput> | Prisma.PembelianCreateWithoutDistributorInput[] | Prisma.PembelianUncheckedCreateWithoutDistributorInput[]
+  connectOrCreate?: Prisma.PembelianCreateOrConnectWithoutDistributorInput | Prisma.PembelianCreateOrConnectWithoutDistributorInput[]
+  createMany?: Prisma.PembelianCreateManyDistributorInputEnvelope
+  connect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+}
+
+export type PembelianUncheckedCreateNestedManyWithoutDistributorInput = {
+  create?: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput> | Prisma.PembelianCreateWithoutDistributorInput[] | Prisma.PembelianUncheckedCreateWithoutDistributorInput[]
+  connectOrCreate?: Prisma.PembelianCreateOrConnectWithoutDistributorInput | Prisma.PembelianCreateOrConnectWithoutDistributorInput[]
+  createMany?: Prisma.PembelianCreateManyDistributorInputEnvelope
+  connect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+}
+
+export type PembelianUpdateManyWithoutDistributorNestedInput = {
+  create?: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput> | Prisma.PembelianCreateWithoutDistributorInput[] | Prisma.PembelianUncheckedCreateWithoutDistributorInput[]
+  connectOrCreate?: Prisma.PembelianCreateOrConnectWithoutDistributorInput | Prisma.PembelianCreateOrConnectWithoutDistributorInput[]
+  upsert?: Prisma.PembelianUpsertWithWhereUniqueWithoutDistributorInput | Prisma.PembelianUpsertWithWhereUniqueWithoutDistributorInput[]
+  createMany?: Prisma.PembelianCreateManyDistributorInputEnvelope
+  set?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  disconnect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  delete?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  connect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  update?: Prisma.PembelianUpdateWithWhereUniqueWithoutDistributorInput | Prisma.PembelianUpdateWithWhereUniqueWithoutDistributorInput[]
+  updateMany?: Prisma.PembelianUpdateManyWithWhereWithoutDistributorInput | Prisma.PembelianUpdateManyWithWhereWithoutDistributorInput[]
+  deleteMany?: Prisma.PembelianScalarWhereInput | Prisma.PembelianScalarWhereInput[]
+}
+
+export type PembelianUncheckedUpdateManyWithoutDistributorNestedInput = {
+  create?: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput> | Prisma.PembelianCreateWithoutDistributorInput[] | Prisma.PembelianUncheckedCreateWithoutDistributorInput[]
+  connectOrCreate?: Prisma.PembelianCreateOrConnectWithoutDistributorInput | Prisma.PembelianCreateOrConnectWithoutDistributorInput[]
+  upsert?: Prisma.PembelianUpsertWithWhereUniqueWithoutDistributorInput | Prisma.PembelianUpsertWithWhereUniqueWithoutDistributorInput[]
+  createMany?: Prisma.PembelianCreateManyDistributorInputEnvelope
+  set?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  disconnect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  delete?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  connect?: Prisma.PembelianWhereUniqueInput | Prisma.PembelianWhereUniqueInput[]
+  update?: Prisma.PembelianUpdateWithWhereUniqueWithoutDistributorInput | Prisma.PembelianUpdateWithWhereUniqueWithoutDistributorInput[]
+  updateMany?: Prisma.PembelianUpdateManyWithWhereWithoutDistributorInput | Prisma.PembelianUpdateManyWithWhereWithoutDistributorInput[]
+  deleteMany?: Prisma.PembelianScalarWhereInput | Prisma.PembelianScalarWhereInput[]
+}
+
 export type EnumStatusPembelianFieldUpdateOperationsInput = {
   set?: $Enums.StatusPembelian
 }
 
 export type EnumMetodeBayarFieldUpdateOperationsInput = {
   set?: $Enums.MetodeBayar
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type PembelianCreateNestedOneWithoutPembeliandetailInput = {
@@ -539,9 +619,10 @@ export type PembelianCreateWithoutUserInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
-  distributorId?: number | null
+  biayakirim: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  distributor?: Prisma.DistributorCreateNestedOneWithoutPembelianInput
   pembeliandetail?: Prisma.PembelianDetailCreateNestedManyWithoutPembelianInput
 }
 
@@ -551,6 +632,7 @@ export type PembelianUncheckedCreateWithoutUserInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -591,10 +673,61 @@ export type PembelianScalarWhereInput = {
   status?: Prisma.EnumStatusPembelianFilter<"Pembelian"> | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFilter<"Pembelian"> | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFilter<"Pembelian"> | number
+  biayakirim?: Prisma.IntFilter<"Pembelian"> | number
   distributorId?: Prisma.IntNullableFilter<"Pembelian"> | number | null
   userId?: Prisma.StringFilter<"Pembelian"> | string
   createdAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Pembelian"> | Date | string
+}
+
+export type PembelianCreateWithoutDistributorInput = {
+  kode: string
+  status: $Enums.StatusPembelian
+  metode: $Enums.MetodeBayar
+  jumlahtotal: number
+  biayakirim: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPembelianInput
+  pembeliandetail?: Prisma.PembelianDetailCreateNestedManyWithoutPembelianInput
+}
+
+export type PembelianUncheckedCreateWithoutDistributorInput = {
+  id?: number
+  kode: string
+  status: $Enums.StatusPembelian
+  metode: $Enums.MetodeBayar
+  jumlahtotal: number
+  biayakirim: number
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  pembeliandetail?: Prisma.PembelianDetailUncheckedCreateNestedManyWithoutPembelianInput
+}
+
+export type PembelianCreateOrConnectWithoutDistributorInput = {
+  where: Prisma.PembelianWhereUniqueInput
+  create: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput>
+}
+
+export type PembelianCreateManyDistributorInputEnvelope = {
+  data: Prisma.PembelianCreateManyDistributorInput | Prisma.PembelianCreateManyDistributorInput[]
+}
+
+export type PembelianUpsertWithWhereUniqueWithoutDistributorInput = {
+  where: Prisma.PembelianWhereUniqueInput
+  update: Prisma.XOR<Prisma.PembelianUpdateWithoutDistributorInput, Prisma.PembelianUncheckedUpdateWithoutDistributorInput>
+  create: Prisma.XOR<Prisma.PembelianCreateWithoutDistributorInput, Prisma.PembelianUncheckedCreateWithoutDistributorInput>
+}
+
+export type PembelianUpdateWithWhereUniqueWithoutDistributorInput = {
+  where: Prisma.PembelianWhereUniqueInput
+  data: Prisma.XOR<Prisma.PembelianUpdateWithoutDistributorInput, Prisma.PembelianUncheckedUpdateWithoutDistributorInput>
+}
+
+export type PembelianUpdateManyWithWhereWithoutDistributorInput = {
+  where: Prisma.PembelianScalarWhereInput
+  data: Prisma.XOR<Prisma.PembelianUpdateManyMutationInput, Prisma.PembelianUncheckedUpdateManyWithoutDistributorInput>
 }
 
 export type PembelianCreateWithoutPembeliandetailInput = {
@@ -602,9 +735,10 @@ export type PembelianCreateWithoutPembeliandetailInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
-  distributorId?: number | null
+  biayakirim: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  distributor?: Prisma.DistributorCreateNestedOneWithoutPembelianInput
   user: Prisma.UserCreateNestedOneWithoutPembelianInput
 }
 
@@ -614,6 +748,7 @@ export type PembelianUncheckedCreateWithoutPembeliandetailInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId?: number | null
   userId: string
   createdAt?: Date | string
@@ -641,9 +776,10 @@ export type PembelianUpdateWithoutPembeliandetailInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
-  distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  distributor?: Prisma.DistributorUpdateOneWithoutPembelianNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutPembelianNestedInput
 }
 
@@ -653,6 +789,7 @@ export type PembelianUncheckedUpdateWithoutPembeliandetailInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -665,6 +802,7 @@ export type PembelianCreateManyUserInput = {
   status: $Enums.StatusPembelian
   metode: $Enums.MetodeBayar
   jumlahtotal: number
+  biayakirim: number
   distributorId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -675,9 +813,10 @@ export type PembelianUpdateWithoutUserInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
-  distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  distributor?: Prisma.DistributorUpdateOneWithoutPembelianNestedInput
   pembeliandetail?: Prisma.PembelianDetailUpdateManyWithoutPembelianNestedInput
 }
 
@@ -687,6 +826,7 @@ export type PembelianUncheckedUpdateWithoutUserInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -699,7 +839,57 @@ export type PembelianUncheckedUpdateManyWithoutUserInput = {
   status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
   distributorId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type PembelianCreateManyDistributorInput = {
+  id?: number
+  kode: string
+  status: $Enums.StatusPembelian
+  metode: $Enums.MetodeBayar
+  jumlahtotal: number
+  biayakirim: number
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PembelianUpdateWithoutDistributorInput = {
+  kode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
+  metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPembelianNestedInput
+  pembeliandetail?: Prisma.PembelianDetailUpdateManyWithoutPembelianNestedInput
+}
+
+export type PembelianUncheckedUpdateWithoutDistributorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  kode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
+  metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pembeliandetail?: Prisma.PembelianDetailUncheckedUpdateManyWithoutPembelianNestedInput
+}
+
+export type PembelianUncheckedUpdateManyWithoutDistributorInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  kode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusPembelianFieldUpdateOperationsInput | $Enums.StatusPembelian
+  metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  biayakirim?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -741,10 +931,12 @@ export type PembelianSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   status?: boolean
   metode?: boolean
   jumlahtotal?: boolean
+  biayakirim?: boolean
   distributorId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   pembeliandetail?: boolean | Prisma.Pembelian$pembeliandetailArgs<ExtArgs>
   _count?: boolean | Prisma.PembelianCountOutputTypeDefaultArgs<ExtArgs>
@@ -756,10 +948,12 @@ export type PembelianSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   status?: boolean
   metode?: boolean
   jumlahtotal?: boolean
+  biayakirim?: boolean
   distributorId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pembelian"]>
 
@@ -769,10 +963,12 @@ export type PembelianSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   status?: boolean
   metode?: boolean
   jumlahtotal?: boolean
+  biayakirim?: boolean
   distributorId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["pembelian"]>
 
@@ -782,28 +978,33 @@ export type PembelianSelectScalar = {
   status?: boolean
   metode?: boolean
   jumlahtotal?: boolean
+  biayakirim?: boolean
   distributorId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PembelianOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "status" | "metode" | "jumlahtotal" | "distributorId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["pembelian"]>
+export type PembelianOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "status" | "metode" | "jumlahtotal" | "biayakirim" | "distributorId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["pembelian"]>
 export type PembelianInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   pembeliandetail?: boolean | Prisma.Pembelian$pembeliandetailArgs<ExtArgs>
   _count?: boolean | Prisma.PembelianCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PembelianIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type PembelianIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  distributor?: boolean | Prisma.Pembelian$distributorArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $PembelianPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Pembelian"
   objects: {
+    distributor: Prisma.$DistributorPayload<ExtArgs> | null
     user: Prisma.$UserPayload<ExtArgs>
     pembeliandetail: Prisma.$PembelianDetailPayload<ExtArgs>[]
   }
@@ -813,6 +1014,7 @@ export type $PembelianPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     status: $Enums.StatusPembelian
     metode: $Enums.MetodeBayar
     jumlahtotal: number
+    biayakirim: number
     distributorId: number | null
     userId: string
     createdAt: Date
@@ -1211,6 +1413,7 @@ readonly fields: PembelianFieldRefs;
  */
 export interface Prisma__PembelianClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  distributor<T extends Prisma.Pembelian$distributorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Pembelian$distributorArgs<ExtArgs>>): Prisma.Prisma__DistributorClient<runtime.Types.Result.GetResult<Prisma.$DistributorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   pembeliandetail<T extends Prisma.Pembelian$pembeliandetailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Pembelian$pembeliandetailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PembelianDetailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1247,6 +1450,7 @@ export interface PembelianFieldRefs {
   readonly status: Prisma.FieldRef<"Pembelian", 'StatusPembelian'>
   readonly metode: Prisma.FieldRef<"Pembelian", 'MetodeBayar'>
   readonly jumlahtotal: Prisma.FieldRef<"Pembelian", 'Int'>
+  readonly biayakirim: Prisma.FieldRef<"Pembelian", 'Int'>
   readonly distributorId: Prisma.FieldRef<"Pembelian", 'Int'>
   readonly userId: Prisma.FieldRef<"Pembelian", 'String'>
   readonly createdAt: Prisma.FieldRef<"Pembelian", 'DateTime'>
@@ -1642,6 +1846,25 @@ export type PembelianDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Limit how many Pembelians to delete.
    */
   limit?: number
+}
+
+/**
+ * Pembelian.distributor
+ */
+export type Pembelian$distributorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Distributor
+   */
+  select?: Prisma.DistributorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Distributor
+   */
+  omit?: Prisma.DistributorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DistributorInclude<ExtArgs> | null
+  where?: Prisma.DistributorWhereInput
 }
 
 /**
