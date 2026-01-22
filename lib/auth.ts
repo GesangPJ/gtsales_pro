@@ -15,11 +15,13 @@ export const auth = betterAuth({
   },
   user: {
     additionalFields: {
+      notelp: { type: "string", required: false, input:true, },
+      alamat: { type: "string", required: false, input: true, },
       tipe: {
-        type: "string",      // atau "enum" kalau pakai Prisma enum
+        type: "string", 
         required: true,
-        defaultValue: "user", // default user biasa
-        input: true,         // boleh diisi saat signUp
+        defaultValue: "user",
+        input: true,
       },
     },
   },
