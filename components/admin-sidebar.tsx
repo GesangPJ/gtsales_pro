@@ -16,6 +16,8 @@ import {
   IconReceipt,
   IconChartHistogram,
   IconTablePlus,
+  IconUserHexagon,
+  IconUsersPlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -112,6 +114,19 @@ const data = {
     }
 
   ],
+  navAkun:[
+    {
+      title:"Daftar Akun",
+      url: "/akun",
+      icon: IconUserHexagon,
+    },
+    {
+      title: "Tambah Akun",
+      url:"/akun/tambah-akun",
+      icon: IconUsersPlus,
+
+    },
+  ],
   navSecondary: [
     
     {
@@ -166,6 +181,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
+         <NavSecondary items={data.navAkun} className="mt-10px" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />
