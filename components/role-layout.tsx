@@ -27,7 +27,7 @@ export async function RoleLayout({children}: Props) {
   const user = {
     name: session?.user?.name ?? "",
     email: session?.user?.email ?? "",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "@/avatars/shadcn.jpg",
   }
 
   return (
