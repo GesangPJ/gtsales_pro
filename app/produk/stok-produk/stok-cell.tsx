@@ -55,7 +55,8 @@ export default function StokCell({
     <div
       ref={ref}
       className="pl-2"
-      onDoubleClick={() => setIsEditing(true)}
+      // onDoubleClick={() => setIsEditing(true)}
+      onClick={() => setIsEditing(true)}
     >
       {isEditing ? (
         <Input
