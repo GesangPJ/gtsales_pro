@@ -592,6 +592,14 @@ export type EnumMetodeBayarFieldUpdateOperationsInput = {
   set?: $Enums.MetodeBayar
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type PembelianCreateNestedOneWithoutPembeliandetailInput = {
   create?: Prisma.XOR<Prisma.PembelianCreateWithoutPembeliandetailInput, Prisma.PembelianUncheckedCreateWithoutPembeliandetailInput>
   connectOrCreate?: Prisma.PembelianCreateOrConnectWithoutPembeliandetailInput
