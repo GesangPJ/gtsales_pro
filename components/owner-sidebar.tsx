@@ -77,7 +77,7 @@ const data = {
     
     {
       title: "Stok Produk",
-      url: "/produk/stok",
+      url: "/produk/stok-produk",
       icon: IconStack3,
     },
     {
