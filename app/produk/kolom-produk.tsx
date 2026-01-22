@@ -172,7 +172,6 @@ export const columns: ColumnDef<Produk>[] = [
       return ( <div className="text-center">Barcode</div>  )
     },
   },
-  
   {
     id: "detail",
     header:" ",
