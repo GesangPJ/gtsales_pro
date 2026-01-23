@@ -14,6 +14,8 @@ export async function GET(_req: NextRequest){
                 name:true,
                 email:true,
                 tipe:true,
+                notelp:true,
+                alamat:true,
             }
         })
 
