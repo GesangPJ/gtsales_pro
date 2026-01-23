@@ -15,6 +15,9 @@ export const auth = betterAuth({
         autoSignIn: false,
   },
   user: {
+    changeEmail: {
+            enabled: true,
+        },
     additionalFields: {
       notelp: { type: "string", required: false, input:true, },
       alamat: { type: "string", required: false, input: true, },
