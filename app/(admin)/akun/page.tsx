@@ -2,6 +2,7 @@
 // Halaman tabel daftar akun
 
 import TabelAkun from "./tabel-akun"
+import EditAkun from "./edit-akun/edit-akun"
 
 export default function HalamanAkun(){
 
@@ -12,6 +13,9 @@ export default function HalamanAkun(){
             </div>
             <div className="px-4 lg:px-6">
                 <TabelAkun/>
+            </div>
+            <div className="px-4 lg:px-6">
+                <EditAkun/>
             </div>
         </div>
     )
