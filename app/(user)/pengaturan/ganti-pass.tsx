@@ -63,7 +63,7 @@ export default function GantiPassword(){
     }
 
     return(
-        <Card>
+        <Card className="bg-accent/50 border dark:bg-card dark:border-border dark:shadow-sm">
             <CardHeader>
                 <CardTitle className="font-mono text-center text-xl warp-break-words hyphens-auto leading-relaxed">
                     Ganti Password Akun
@@ -76,6 +76,7 @@ export default function GantiPassword(){
                 type="password"
                 id="password-sekarang"
                 name="password-sekarang"
+                placeholder="ketik password saat ini"
                 value={passSekarang}
                 onChange={(e) => setPassSekarang(e.target.value)}
                 required
@@ -90,6 +91,7 @@ export default function GantiPassword(){
                 type="password"
                 id="password-baru"
                 name="password-baru"
+                placeholder="ketik password baru"
                 value={passBaru}
                 onChange={(e) => setPassBaru(e.target.value)}
                 required
@@ -119,7 +121,7 @@ export default function GantiPassword(){
                 </form>
 
             </CardContent>
-            <CardFooter className="text-center warp-break-words hyphens-auto leading-relaxed">
+            <CardFooter>
                 <p className="font-mono text-sm text-muted-foreground"> Anda harus masuk (Sign In) ulang setelah reset password akun anda</p>
             </CardFooter>
 
