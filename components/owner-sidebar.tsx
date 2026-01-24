@@ -122,13 +122,8 @@ const data = {
     
     {
       title: "Pengaturan Toko",
-      url: "/pengaturan",
+      url: "/toko",
       icon: IconSettings,
-    },
-    {
-      title: "Panduan",
-      url: "#",
-      icon: IconHelp,
     },
   ],
   navAkun:[
