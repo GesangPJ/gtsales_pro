@@ -33,22 +33,22 @@ export default async function KomponenAkun(){
             </CardHeader>
             <CardContent className="font-mono space-y-2 mt-3 mb-5 text-lg">
                 <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
-                    <p className=" text-left w-40">Nama Akun</p>
+                    <p className=" text-left w-32 warp-break-words hyphens-auto leading-relaxed">Nama</p>
                     <p className="text-center">:</p>
                     <p className="warp-break-words hyphens-auto leading-relaxed">{nama}</p>
                 </div>
                 <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
-                    <p className=" text-left w-40">Email Akun</p>
+                    <p className=" text-left w-32 warp-break-words hyphens-auto leading-relaxed">Email</p>
                     <p className="text-center">:</p>
                     <p className="warp-break-words hyphens-auto leading-relaxed">{email}</p>
                 </div>
                 <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
-                    <p className=" text-left w-40">No.telpon Akun</p>
+                    <p className=" text-left w-32 warp-break-words hyphens-auto leading-relaxed">No.telpon</p>
                     <p className="text-center">:</p>
                     <p>{notelp}</p>
                 </div>
                 <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
-                    <p className=" text-left w-40">Alamat Akun</p>
+                    <p className=" text-left w-32 warp-break-words hyphens-auto leading-relaxed">Alamat</p>
                     <p className="text-center">:</p>
                     <p className="warp-break-words hyphens-auto leading-relaxed">{alamat}</p>
                 </div>
