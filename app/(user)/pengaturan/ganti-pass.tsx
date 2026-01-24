@@ -44,7 +44,7 @@ export default function GantiPassword(){
       })
 
       if (error) {
-        console.error(error)
+        console.warn("Password change error:", error)
         toast.error(error.message ?? 'Gagal mengganti password')
         return
       }
