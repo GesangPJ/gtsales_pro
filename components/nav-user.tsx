@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation"
 import { authClient } from "@/lib/auth-client"
+import Link from "next/link"
+import { Button } from "@base-ui/react"
 
 import {
   IconDotsVertical,
@@ -100,10 +102,13 @@ export function NavUser({ user }: NavUserProps) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
+              <Link href="/pengaturan">
               <DropdownMenuItem>
-                <IconUserCircle />
-                Akun
+                  <IconUserCircle /> 
+                  <p className="font-bold">Akun</p>
               </DropdownMenuItem>
+              </Link>
+              
               <DropdownMenuItem>
               <IconHelp/>
               Panduan
