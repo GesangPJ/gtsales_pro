@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/(admin)/akun/layout.bak", "app/(user)/produk/layout.bak"  ],
   "exclude": ["node_modules"]
 }

@@ -11,7 +11,7 @@ export function SiteHeader() {
         <SidebarTrigger className="-ml-1" />
         <Separator
           orientation="vertical"
-          className="mx-2 data-[orientation=vertical]:h-4"
+          className="mx-2 data-[orientation=vertical]:h-8"
         />
         {/* <h1 className="text-base font-medium">Documents</h1> */}
         <h1 className="text-lg font-medium"><AmbilTanggal/></h1>

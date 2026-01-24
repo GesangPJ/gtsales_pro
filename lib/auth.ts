@@ -11,15 +11,21 @@ export const auth = betterAuth({
         provider: "sqlite",
     }),
  emailAndPassword: { 
-        enabled: true, 
+        enabled: true,
+        autoSignIn: false,
   },
   user: {
+    changeEmail: {
+            enabled: true,
+        },
     additionalFields: {
+      notelp: { type: "string", required: false, input:true, },
+      alamat: { type: "string", required: false, input: true, },
       tipe: {
-        type: "string",      // atau "enum" kalau pakai Prisma enum
+        type: "string", 
         required: true,
-        defaultValue: "user", // default user biasa
-        input: true,         // boleh diisi saat signUp
+        defaultValue: "user",
+        input: true,
       },
     },
   },
