@@ -4,7 +4,7 @@ import { auth } from "@/lib/auth"
 
 async function registerAdmin(){
     const ADMIN_EMAIL = "admin@email.com"
-    const ADMIN_PASSWORD = "admin123456"
+    const ADMIN_PASSWORD = "admin12345678"
     const ADMIN_NAME = "Admin test 01"
 
     try{
