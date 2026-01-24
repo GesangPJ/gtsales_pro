@@ -11,7 +11,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/ui/input-group"
-import { InfoIcon, SaveIcon }from "lucide-react"
+import { InfoIcon, SaveIcon, RotateCcw }from "lucide-react"
 import {
   Tooltip,
   TooltipContent,
@@ -33,6 +33,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {IconArrowBadgeDownFilled} from "@tabler/icons-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 import { Button } from "@/components/ui/button"
 import { baseUrl } from "@/lib/base-url"
@@ -150,7 +158,13 @@ export default function EditAkun(){
 
     return(
         <div>
-            <h1 className="text-lg font-bold">Edit Data Akun</h1>
+            <Card className="bg-accent/50 border dark:bg-card dark:border-border dark:shadow-sm">
+                <CardHeader>
+                    <CardTitle className="font-mono text-center text-xl warp-break-words hyphens-auto leading-relaxed">
+                        Edit Data Akun
+                    </CardTitle>
+                </CardHeader>
+            <CardContent className="font-mono">
             <form onSubmit={handleSubmit} ref={formRef} className="text-lg">
             {/* 2 Kolom */}
             <div className="px-6 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -292,7 +306,7 @@ export default function EditAkun(){
                     variant="destructive" 
                     className="flex-1 h-14 text-xl"
                     onClick={clear}
-                >
+                > <RotateCcw/>
                     Reset
                 </Button>
 
@@ -308,6 +322,8 @@ export default function EditAkun(){
                 </Button>
             </div>
         </form>
+        </CardContent>
+        </Card>
         </div>
     )
 }
