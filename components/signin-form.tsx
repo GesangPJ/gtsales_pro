@@ -36,11 +36,17 @@ export function LoginForm({ className, ...props }: LoginProps) {
     setLoading(true);
 
     try {
-      await authClient.signIn.email({
+      const {error, data} = await authClient.signIn.email({
         email,
         password,
         callbackURL: "/kasir",
       });
+
+    if (error) {
+        console.warn("Gagal masuk akun:", error)
+        toast.error(error.message ?? 'Gagal masuk akun')
+        return
+      }
 
     toast.success("Login berhasil!");
 
@@ -57,8 +63,8 @@ export function LoginForm({ className, ...props }: LoginProps) {
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Selamat Datang</CardTitle>
-          <CardDescription>
-            Masuk menggunakan Email dan Password anda
+          <CardDescription className="text-muted-foreground text-sm font-mono">
+            Silahkan masuk menggunakan Email dan Password anda
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -95,9 +101,9 @@ export function LoginForm({ className, ...props }: LoginProps) {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2"
+                className='mt-2 flex-1 w-full h-10 text-lg bg-sky-600/10 text-sky-600 hover:bg-sky-600/20 focus-visible:ring-sky-600/20 dark:bg-sky-400/10 dark:text-sky-400 dark:hover:bg-sky-400/20 dark:focus-visible:ring-sky-400/40'
               >
-                {loading ? "Masuk..." : "Masuk"}
+                {loading ? "Mohon tunggu..." : "Masuk"}
               </Button>
             </FieldGroup>
           </form>
