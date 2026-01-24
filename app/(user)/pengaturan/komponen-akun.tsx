@@ -25,7 +25,7 @@ export default async function KomponenAkun(){
     const alamat = session?.user?.alamat ?? "-"
 
     return(
-        <Card>
+        <Card className="bg-accent/50 border dark:bg-card dark:border-border dark:shadow-sm">
             <CardHeader>
                 <CardTitle className="font-mono text-center text-xl warp-break-words hyphens-auto leading-relaxed">
                     Detail Akun
