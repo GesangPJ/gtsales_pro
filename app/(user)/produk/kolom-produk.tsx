@@ -154,9 +154,10 @@ export const columns: ColumnDef<Produk>[] = [
   },
   {
     accessorKey: "stok",
-    // header: "Stok",
+    size: 50,
+    minSize: 20,
     header: () => {
-      return ( <div className="w-3 text-center">Stok Barang</div>  )
+      return ( <div className="text-center">Stok</div>  )
     },
     cell: ({row}) => {
       return(
