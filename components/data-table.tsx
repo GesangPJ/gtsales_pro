@@ -64,7 +64,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="rounded-md border-2">
+    <div className=" rounded-xl bg-accent/50 border dark:bg-card dark:border-border dark:shadow-sm">
       <div className="m-3">
           <Select
             value={String(table.getState().pagination.pageSize)}
