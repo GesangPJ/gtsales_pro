@@ -104,7 +104,7 @@ export default function EditAkun(){
         elements['notelp'].value = akun.notelp
         elements['alamat'].value = akun.alamat
         setAlamat(akun.alamat || "")
-        setTipeAkun(akun.tipe || "") // sesuaikan jika ada field tipe akun
+        setTipeAkun(akun.tipe || "")
     }
 
     // Handle submit form

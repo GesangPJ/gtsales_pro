@@ -141,7 +141,7 @@ export default function FormTambahAkun(){
                     ) : (
                         <CirclePlus className="mr-2 h-5 w-5" />
                     )}
-                    {loading ? "Membuat..." : "Tambah Akun"}
+                    {loading ? "Menambahkan..." : "Tambah Akun"}
                 </Button>
                 </div>
                 

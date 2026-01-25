@@ -21,6 +21,8 @@ import {
   IconUserHexagon,
   IconUsersPlus,
   IconTablePlus,
+  IconBuildingWarehouse,
+  IconDatabasePlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -139,6 +141,19 @@ const data = {
 
     },
   ],
+  distributor:[
+    {
+      title: "Distributor",
+      url: "/distributor",
+      icon: IconBuildingWarehouse,
+
+    },
+    {
+      title: "Tambah Distributor",
+      url:"/distributor/tambah-distributor",
+      icon: IconDatabasePlus,
+    },
+  ]
 }
 
 import { AppInfo } from "./app-info"
@@ -179,6 +194,8 @@ export function OwnerSidebar({user}: OwnerSidebarProps ) {
         <NavSecondary items={data.navTambah} className="mt-10px" />
         <SidebarSeparator />
         <NavSecondary items={data.navVendor} className="mt-10px" />
+        <SidebarSeparator />
+        <NavSecondary items={data.distributor} className="mt-10px" />
         <SidebarSeparator />
         <NavSecondary items={data.navSecondary} className="mt-10px" />
         <SidebarSeparator />

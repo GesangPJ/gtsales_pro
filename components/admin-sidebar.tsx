@@ -18,6 +18,8 @@ import {
   IconTablePlus,
   IconUserHexagon,
   IconUsersPlus,
+  IconBuildingWarehouse,
+  IconDatabasePlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -140,6 +142,19 @@ const data = {
       icon: IconHelp,
     },
   ],
+  distributor:[
+    {
+      title: "Distributor",
+      url: "/distributor",
+      icon: IconBuildingWarehouse,
+
+    },
+    {
+      title: "Tambah Distributor",
+      url:"/distributor/tambah-distributor",
+      icon: IconDatabasePlus,
+    },
+  ]
 }
 
 import { AppInfo } from "./app-info"
@@ -180,6 +195,8 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
         <NavSecondary items={data.navTambah} className="mt-10px" />
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
+          <SidebarSeparator />
+          <NavSecondary items={data.distributor} className="mt-10px" />
           <SidebarSeparator />
          <NavSecondary items={data.navAkun} className="mt-10px" />
       </SidebarContent>
