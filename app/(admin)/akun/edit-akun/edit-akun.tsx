@@ -76,7 +76,7 @@ export default function EditAkun(){
 
    async function ambilAkun() {
     try {
-        const respon = await fetch(`${baseUrl}/api/data-akun`)
+        const respon = await fetch(`${baseUrl}/api/akun-not-owner`)
         if (!respon.ok) throw new Error("Gagal ambil data akun!")
         
         const result = await respon.json()
