@@ -26,6 +26,7 @@ model User {
   jurnal        Jurnal[]
   pembelian     Pembelian[]
   penjualan     Penjualan[]
+  gaji          Gaji[]
 
   @@unique([email])
   @@index([name])
@@ -218,6 +219,44 @@ model Toko {
   npwp        String?
 
   updatedAt   DateTime    @updatedAt
+}
+
+model Gaji {
+  id        Int   @id  @default(autoincrement())
+  kode_gaji String  @unique
+  userId    String
+  nama_user String
+  gaji_nett Int       
+  tanggal   DateTime  @default(now())
+  update    DateTime  @updatedAt
+
+  user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  gajidetail GajiDetail[]
+
+  @@index([nama_user])
+  @@index([kode_gaji])
+  @@map("gaji")
+
+}
+
+model GajiDetail {
+  id        Int   @id  @default(autoincrement())
+  gajiId    Int
+  gaji_pokok  Int     @default(0)
+  tidak_masuk Int?    @default(0)
+  bonus       Int?    @default(0)
+  kategori_ptkp String    @default("tk0")
+  isbpjs        Boolean
+  bpjs_nilai  Int   @default(0)
+  ispph         Boolean
+  pph_nilai     Int   @default(0)
+
+  gaji       Gaji    @relation(fields: [gajiId], references: [id])
+
+  @@index([gajiId])
+  @@map("gajidetail")
+
 }
 
 model Session {
