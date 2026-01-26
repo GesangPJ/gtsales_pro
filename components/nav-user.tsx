@@ -3,13 +3,11 @@
 import { useRouter } from "next/navigation"
 import { authClient } from "@/lib/auth-client"
 import Link from "next/link"
-import { Button } from "@base-ui/react"
 
 import {
   IconDotsVertical,
   IconLogout,
   IconUserCircle,
-  IconSettings,
   IconHelp,
 } from "@tabler/icons-react"
 
@@ -50,7 +48,7 @@ export function NavUser({ user }: NavUserProps) {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/"); // redirect ke halaman login
+          router.push("/")
         },
       },
     })
