@@ -204,9 +204,8 @@ export const JurnalScalarFieldEnum = {
   akun: 'akun',
   debit: 'debit',
   kredit: 'kredit',
-  kterangan: 'kterangan',
+  keterangan: 'keterangan',
   sumber: 'sumber',
-  sumberId: 'sumberId',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
