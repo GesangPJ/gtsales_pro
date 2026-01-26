@@ -30,14 +30,12 @@ export type JurnalAvgAggregateOutputType = {
   id: number | null
   debit: runtime.Decimal | null
   kredit: runtime.Decimal | null
-  sumberId: number | null
 }
 
 export type JurnalSumAggregateOutputType = {
   id: number | null
   debit: runtime.Decimal | null
   kredit: runtime.Decimal | null
-  sumberId: number | null
 }
 
 export type JurnalMinAggregateOutputType = {
@@ -46,9 +44,8 @@ export type JurnalMinAggregateOutputType = {
   akun: $Enums.AkunJurnal | null
   debit: runtime.Decimal | null
   kredit: runtime.Decimal | null
-  kterangan: string | null
+  keterangan: string | null
   sumber: string | null
-  sumberId: number | null
   userId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -60,9 +57,8 @@ export type JurnalMaxAggregateOutputType = {
   akun: $Enums.AkunJurnal | null
   debit: runtime.Decimal | null
   kredit: runtime.Decimal | null
-  kterangan: string | null
+  keterangan: string | null
   sumber: string | null
-  sumberId: number | null
   userId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -74,9 +70,8 @@ export type JurnalCountAggregateOutputType = {
   akun: number
   debit: number
   kredit: number
-  kterangan: number
+  keterangan: number
   sumber: number
-  sumberId: number
   userId: number
   createdAt: number
   updatedAt: number
@@ -88,14 +83,12 @@ export type JurnalAvgAggregateInputType = {
   id?: true
   debit?: true
   kredit?: true
-  sumberId?: true
 }
 
 export type JurnalSumAggregateInputType = {
   id?: true
   debit?: true
   kredit?: true
-  sumberId?: true
 }
 
 export type JurnalMinAggregateInputType = {
@@ -104,9 +97,8 @@ export type JurnalMinAggregateInputType = {
   akun?: true
   debit?: true
   kredit?: true
-  kterangan?: true
+  keterangan?: true
   sumber?: true
-  sumberId?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -118,9 +110,8 @@ export type JurnalMaxAggregateInputType = {
   akun?: true
   debit?: true
   kredit?: true
-  kterangan?: true
+  keterangan?: true
   sumber?: true
-  sumberId?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -132,9 +123,8 @@ export type JurnalCountAggregateInputType = {
   akun?: true
   debit?: true
   kredit?: true
-  kterangan?: true
+  keterangan?: true
   sumber?: true
-  sumberId?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -233,9 +223,8 @@ export type JurnalGroupByOutputType = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal
   kredit: runtime.Decimal
-  kterangan: string | null
+  keterangan: string | null
   sumber: string | null
-  sumberId: number | null
   userId: string
   createdAt: Date
   updatedAt: Date
@@ -270,9 +259,8 @@ export type JurnalWhereInput = {
   akun?: Prisma.EnumAkunJurnalFilter<"Jurnal"> | $Enums.AkunJurnal
   debit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
+  keterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
   sumber?: Prisma.StringNullableFilter<"Jurnal"> | string | null
-  sumberId?: Prisma.IntNullableFilter<"Jurnal"> | number | null
   userId?: Prisma.StringFilter<"Jurnal"> | string
   createdAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
@@ -285,9 +273,8 @@ export type JurnalOrderByWithRelationInput = {
   akun?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  kterangan?: Prisma.SortOrderInput | Prisma.SortOrder
+  keterangan?: Prisma.SortOrderInput | Prisma.SortOrder
   sumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  sumberId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -303,9 +290,8 @@ export type JurnalWhereUniqueInput = Prisma.AtLeast<{
   akun?: Prisma.EnumAkunJurnalFilter<"Jurnal"> | $Enums.AkunJurnal
   debit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
+  keterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
   sumber?: Prisma.StringNullableFilter<"Jurnal"> | string | null
-  sumberId?: Prisma.IntNullableFilter<"Jurnal"> | number | null
   userId?: Prisma.StringFilter<"Jurnal"> | string
   createdAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
@@ -318,9 +304,8 @@ export type JurnalOrderByWithAggregationInput = {
   akun?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  kterangan?: Prisma.SortOrderInput | Prisma.SortOrder
+  keterangan?: Prisma.SortOrderInput | Prisma.SortOrder
   sumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  sumberId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -340,9 +325,8 @@ export type JurnalScalarWhereWithAggregatesInput = {
   akun?: Prisma.EnumAkunJurnalWithAggregatesFilter<"Jurnal"> | $Enums.AkunJurnal
   debit?: Prisma.DecimalWithAggregatesFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalWithAggregatesFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.StringNullableWithAggregatesFilter<"Jurnal"> | string | null
+  keterangan?: Prisma.StringNullableWithAggregatesFilter<"Jurnal"> | string | null
   sumber?: Prisma.StringNullableWithAggregatesFilter<"Jurnal"> | string | null
-  sumberId?: Prisma.IntNullableWithAggregatesFilter<"Jurnal"> | number | null
   userId?: Prisma.StringWithAggregatesFilter<"Jurnal"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Jurnal"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Jurnal"> | Date | string
@@ -353,9 +337,8 @@ export type JurnalCreateInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutJurnalInput
@@ -367,9 +350,8 @@ export type JurnalUncheckedCreateInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -380,9 +362,8 @@ export type JurnalUpdateInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutJurnalNestedInput
@@ -394,9 +375,8 @@ export type JurnalUncheckedUpdateInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -408,9 +388,8 @@ export type JurnalCreateManyInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -421,9 +400,8 @@ export type JurnalUpdateManyMutationInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -434,9 +412,8 @@ export type JurnalUncheckedUpdateManyInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -458,9 +435,8 @@ export type JurnalCountOrderByAggregateInput = {
   akun?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  kterangan?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   sumber?: Prisma.SortOrder
-  sumberId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -470,7 +446,6 @@ export type JurnalAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  sumberId?: Prisma.SortOrder
 }
 
 export type JurnalMaxOrderByAggregateInput = {
@@ -479,9 +454,8 @@ export type JurnalMaxOrderByAggregateInput = {
   akun?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  kterangan?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   sumber?: Prisma.SortOrder
-  sumberId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -493,9 +467,8 @@ export type JurnalMinOrderByAggregateInput = {
   akun?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  kterangan?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   sumber?: Prisma.SortOrder
-  sumberId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -505,7 +478,6 @@ export type JurnalSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   debit?: Prisma.SortOrder
   kredit?: Prisma.SortOrder
-  sumberId?: Prisma.SortOrder
 }
 
 export type JurnalCreateNestedManyWithoutUserInput = {
@@ -567,9 +539,8 @@ export type JurnalCreateWithoutUserInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -580,9 +551,8 @@ export type JurnalUncheckedCreateWithoutUserInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -621,9 +591,8 @@ export type JurnalScalarWhereInput = {
   akun?: Prisma.EnumAkunJurnalFilter<"Jurnal"> | $Enums.AkunJurnal
   debit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFilter<"Jurnal"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
+  keterangan?: Prisma.StringNullableFilter<"Jurnal"> | string | null
   sumber?: Prisma.StringNullableFilter<"Jurnal"> | string | null
-  sumberId?: Prisma.IntNullableFilter<"Jurnal"> | number | null
   userId?: Prisma.StringFilter<"Jurnal"> | string
   createdAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Jurnal"> | Date | string
@@ -635,9 +604,8 @@ export type JurnalCreateManyUserInput = {
   akun: $Enums.AkunJurnal
   debit: runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit: runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: string | null
+  keterangan?: string | null
   sumber?: string | null
-  sumberId?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -647,9 +615,8 @@ export type JurnalUpdateWithoutUserInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -660,9 +627,8 @@ export type JurnalUncheckedUpdateWithoutUserInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -673,9 +639,8 @@ export type JurnalUncheckedUpdateManyWithoutUserInput = {
   akun?: Prisma.EnumAkunJurnalFieldUpdateOperationsInput | $Enums.AkunJurnal
   debit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   kredit?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  kterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  sumberId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -688,9 +653,8 @@ export type JurnalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   akun?: boolean
   debit?: boolean
   kredit?: boolean
-  kterangan?: boolean
+  keterangan?: boolean
   sumber?: boolean
-  sumberId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -703,9 +667,8 @@ export type JurnalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   akun?: boolean
   debit?: boolean
   kredit?: boolean
-  kterangan?: boolean
+  keterangan?: boolean
   sumber?: boolean
-  sumberId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -718,9 +681,8 @@ export type JurnalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   akun?: boolean
   debit?: boolean
   kredit?: boolean
-  kterangan?: boolean
+  keterangan?: boolean
   sumber?: boolean
-  sumberId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -733,15 +695,14 @@ export type JurnalSelectScalar = {
   akun?: boolean
   debit?: boolean
   kredit?: boolean
-  kterangan?: boolean
+  keterangan?: boolean
   sumber?: boolean
-  sumberId?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type JurnalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "akun" | "debit" | "kredit" | "kterangan" | "sumber" | "sumberId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["jurnal"]>
+export type JurnalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "akun" | "debit" | "kredit" | "keterangan" | "sumber" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["jurnal"]>
 export type JurnalInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -763,9 +724,8 @@ export type $JurnalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     akun: $Enums.AkunJurnal
     debit: runtime.Decimal
     kredit: runtime.Decimal
-    kterangan: string | null
+    keterangan: string | null
     sumber: string | null
-    sumberId: number | null
     userId: string
     createdAt: Date
     updatedAt: Date
@@ -1198,9 +1158,8 @@ export interface JurnalFieldRefs {
   readonly akun: Prisma.FieldRef<"Jurnal", 'AkunJurnal'>
   readonly debit: Prisma.FieldRef<"Jurnal", 'Decimal'>
   readonly kredit: Prisma.FieldRef<"Jurnal", 'Decimal'>
-  readonly kterangan: Prisma.FieldRef<"Jurnal", 'String'>
+  readonly keterangan: Prisma.FieldRef<"Jurnal", 'String'>
   readonly sumber: Prisma.FieldRef<"Jurnal", 'String'>
-  readonly sumberId: Prisma.FieldRef<"Jurnal", 'Int'>
   readonly userId: Prisma.FieldRef<"Jurnal", 'String'>
   readonly createdAt: Prisma.FieldRef<"Jurnal", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Jurnal", 'DateTime'>
