@@ -78,7 +78,7 @@ export const columns: ColumnDef<Pembelian>[] = [
     minSize:12,
     header: ({ column }) => {
       return (
-        <div className="w-8">
+        <div>
           <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
