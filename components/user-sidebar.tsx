@@ -41,22 +41,6 @@ const data = {
       url: "/kasir",
       icon: IconCashRegister,
     },
-    {
-      title: "Dashboard",
-      url:"/dashboard",
-      icon: IconLayoutDashboard,
-    },
-    {
-      title: "Data Penjualan",
-      url: "/data-penjualan",
-      icon: IconDatabaseDollar,
-    },
-    {
-      title: "Laporan Penjualan",
-      url:"/laporan/penjualan",
-      icon:IconChartHistogram,
-
-    },
     
     
   ],
@@ -71,22 +55,16 @@ const data = {
       url: "/produk/stok-produk",
       icon: IconStack3,
     },
-    {
-      title: "Kategori Produk",
-      url: "/kategori",
-      icon: IconCategoryPlus,
-    },
-
   ],
   navVendor:[
     {
       title: "Daftar Pembelian",
-      url: "/daftar-pembelian",
+      url: "/pembelian/data-pembelian",
       icon: IconTableFilled,
     },
     {
       title: "Pembelian Produk",
-      url: "/buat-pembelian",
+      url: "/pembelian",
       icon: IconTruckLoading,
     },
 
