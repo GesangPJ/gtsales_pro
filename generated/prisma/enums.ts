@@ -41,6 +41,7 @@ export const AkunJurnal = {
   PEMBELIAN: 'PEMBELIAN',
   HPP: 'HPP',
   KAS: 'KAS',
+  BANK: 'BANK',
   PIUTANG: 'PIUTANG'
 } as const
 
