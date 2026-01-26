@@ -73,6 +73,16 @@ export type Pengaturan = Prisma.PengaturanModel
  */
 export type Toko = Prisma.TokoModel
 /**
+ * Model Gaji
+ * 
+ */
+export type Gaji = Prisma.GajiModel
+/**
+ * Model GajiDetail
+ * 
+ */
+export type GajiDetail = Prisma.GajiDetailModel
+/**
  * Model Session
  * 
  */
