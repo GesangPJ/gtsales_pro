@@ -1,6 +1,6 @@
 
 // Halaman detail pembelian
-import { formatTanggal } from "@/lib/formattanggal"
+import { formatTanggal, formatTanggalJam } from "@/lib/formattanggal"
 import { baseUrl } from "@/lib/base-url"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -53,9 +53,9 @@ export default async function HalamanDetailPembelian({params}: DetailProps){
                 <h1 className="text-xl font-bold">Detail Pembelian : {details.kode}</h1>
                 <div className="space-y-2 mt-3 mb-5">
                     <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
-                        <p className="font-medium text-left w-32">Tanggal</p>
+                        <p className="font-medium text-left w-32">Update</p>
                         <p className="text-center">:</p>
-                        <p>{formatTanggal(details.createdAt)}</p>
+                        <p>{formatTanggalJam(details.createdAt)}</p>
                     </div>
                     <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2">
                         <p className="font-medium text-left w-32">Status</p>
