@@ -395,6 +395,8 @@ export const ModelName = {
   Jurnal: 'Jurnal',
   Pengaturan: 'Pengaturan',
   Toko: 'Toko',
+  Gaji: 'Gaji',
+  GajiDetail: 'GajiDetail',
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification',
@@ -414,7 +416,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "kategori" | "produk" | "distributor" | "pembelian" | "pembelianDetail" | "penjualan" | "penjualanDetail" | "jurnal" | "pengaturan" | "toko" | "session" | "account" | "verification" | "jwks"
+    modelProps: "user" | "kategori" | "produk" | "distributor" | "pembelian" | "pembelianDetail" | "penjualan" | "penjualanDetail" | "jurnal" | "pengaturan" | "toko" | "gaji" | "gajiDetail" | "session" | "account" | "verification" | "jwks"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1232,6 +1234,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Gaji: {
+      payload: Prisma.$GajiPayload<ExtArgs>
+      fields: Prisma.GajiFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GajiFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GajiFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        findFirst: {
+          args: Prisma.GajiFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GajiFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        findMany: {
+          args: Prisma.GajiFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>[]
+        }
+        create: {
+          args: Prisma.GajiCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        createMany: {
+          args: Prisma.GajiCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GajiCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>[]
+        }
+        delete: {
+          args: Prisma.GajiDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        update: {
+          args: Prisma.GajiUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        deleteMany: {
+          args: Prisma.GajiDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GajiUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GajiUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>[]
+        }
+        upsert: {
+          args: Prisma.GajiUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiPayload>
+        }
+        aggregate: {
+          args: Prisma.GajiAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGaji>
+        }
+        groupBy: {
+          args: Prisma.GajiGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GajiGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GajiCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GajiCountAggregateOutputType> | number
+        }
+      }
+    }
+    GajiDetail: {
+      payload: Prisma.$GajiDetailPayload<ExtArgs>
+      fields: Prisma.GajiDetailFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GajiDetailFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GajiDetailFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        findFirst: {
+          args: Prisma.GajiDetailFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GajiDetailFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        findMany: {
+          args: Prisma.GajiDetailFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>[]
+        }
+        create: {
+          args: Prisma.GajiDetailCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        createMany: {
+          args: Prisma.GajiDetailCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GajiDetailCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>[]
+        }
+        delete: {
+          args: Prisma.GajiDetailDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        update: {
+          args: Prisma.GajiDetailUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        deleteMany: {
+          args: Prisma.GajiDetailDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GajiDetailUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GajiDetailUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>[]
+        }
+        upsert: {
+          args: Prisma.GajiDetailUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GajiDetailPayload>
+        }
+        aggregate: {
+          args: Prisma.GajiDetailAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGajiDetail>
+        }
+        groupBy: {
+          args: Prisma.GajiDetailGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GajiDetailGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GajiDetailCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GajiDetailCountAggregateOutputType> | number
+        }
+      }
+    }
     Session: {
       payload: Prisma.$SessionPayload<ExtArgs>
       fields: Prisma.SessionFieldRefs
@@ -1717,6 +1867,35 @@ export const TokoScalarFieldEnum = {
 export type TokoScalarFieldEnum = (typeof TokoScalarFieldEnum)[keyof typeof TokoScalarFieldEnum]
 
 
+export const GajiScalarFieldEnum = {
+  id: 'id',
+  kode_gaji: 'kode_gaji',
+  userId: 'userId',
+  nama_user: 'nama_user',
+  gaji_nett: 'gaji_nett',
+  tanggal: 'tanggal',
+  update: 'update'
+} as const
+
+export type GajiScalarFieldEnum = (typeof GajiScalarFieldEnum)[keyof typeof GajiScalarFieldEnum]
+
+
+export const GajiDetailScalarFieldEnum = {
+  id: 'id',
+  gajiId: 'gajiId',
+  gaji_pokok: 'gaji_pokok',
+  tidak_masuk: 'tidak_masuk',
+  bonus: 'bonus',
+  kategori_ptkp: 'kategori_ptkp',
+  isbpjs: 'isbpjs',
+  bpjs_nilai: 'bpjs_nilai',
+  ispph: 'ispph',
+  pph_nilai: 'pph_nilai'
+} as const
+
+export type GajiDetailScalarFieldEnum = (typeof GajiDetailScalarFieldEnum)[keyof typeof GajiDetailScalarFieldEnum]
+
+
 export const SessionScalarFieldEnum = {
   id: 'id',
   expiresAt: 'expiresAt',
@@ -1970,6 +2149,8 @@ export type GlobalOmitConfig = {
   jurnal?: Prisma.JurnalOmit
   pengaturan?: Prisma.PengaturanOmit
   toko?: Prisma.TokoOmit
+  gaji?: Prisma.GajiOmit
+  gajiDetail?: Prisma.GajiDetailOmit
   session?: Prisma.SessionOmit
   account?: Prisma.AccountOmit
   verification?: Prisma.VerificationOmit
