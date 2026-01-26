@@ -12,7 +12,6 @@ import {
   IconSettings,
   IconStack3,
   IconTableFilled,
-  IconLayoutDashboard,
   IconReceipt,
   IconChartHistogram,
   IconTablePlus,
@@ -43,11 +42,6 @@ const data = {
       title: "Kasir",
       url: "/kasir",
       icon: IconCashRegister,
-    },
-    {
-      title: "Dashboard",
-      url:"/dashboard",
-      icon: IconLayoutDashboard,
     },
     {
       title: "Data Penjualan",
@@ -84,12 +78,6 @@ const data = {
       title: "Kategori Produk",
       url: "/kategori",
       icon: IconCategoryPlus,
-    },
-    {
-      title: "Tambah Kategori",
-      url:"/tambah-kategori",
-      icon: IconTablePlus,
-
     },
 
   ],
