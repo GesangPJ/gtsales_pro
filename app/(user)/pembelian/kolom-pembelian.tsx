@@ -26,18 +26,18 @@ export const columnpembelian : ColumnDef<CartItem>[] = [
         size: 10,
       },
       {
-        accessorKey: "nama_barang",
+        accessorKey: "nama",
         header: ({ column }) => (
           < Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
             className="h-8 px-2"
           >
-            Nama Barang
+            Nama Produk
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         ),
         cell: ({ row }) => (
           <div className="capitalize pl-2">
-            {row.getValue("nama_barang")}
+            {row.getValue("nama")}
           </div>
         ),
       },
