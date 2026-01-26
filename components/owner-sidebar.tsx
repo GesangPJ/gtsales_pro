@@ -89,12 +89,6 @@ const data = {
       url: "/kategori",
       icon: IconCategoryPlus,
     },
-    {
-      title: "Tambah Kategori",
-      url:"/tambah-kategori",
-      icon: IconTablePlus,
-
-    },
 
   ],
   navVendor:[
