@@ -23,6 +23,8 @@ import {
   IconTablePlus,
   IconBuildingWarehouse,
   IconDatabasePlus,
+  IconFileInvoice,
+  IconPencilPlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -94,12 +96,12 @@ const data = {
   navVendor:[
     {
       title: "Daftar Pembelian",
-      url: "/daftar-pembelian",
+      url: "/pembelian/data-pembelian",
       icon: IconTableFilled,
     },
     {
       title: "Pembelian Barang",
-      url: "/buat-pembelian",
+      url: "/pembelian",
       icon: IconTruckLoading,
     },
     {
@@ -147,7 +149,21 @@ const data = {
       url:"/distributor/tambah-distributor",
       icon: IconDatabasePlus,
     },
-  ]
+  ],
+  jurnal:[
+    {
+      title:"Data Jurnal",
+      url: "/jurnal",
+      icon: IconFileInvoice,
+
+    },
+    {
+      title: "Tambah Jurnal",
+      url: "/jurnal/tambah",
+      icon: IconPencilPlus,
+
+    },
+  ],
 }
 
 import { AppInfo } from "./app-info"
@@ -190,6 +206,8 @@ export function OwnerSidebar({user}: OwnerSidebarProps ) {
         <NavSecondary items={data.navVendor} className="mt-10px" />
         <SidebarSeparator />
         <NavSecondary items={data.distributor} className="mt-10px" />
+        <SidebarSeparator />
+        <NavSecondary items={data.jurnal} className="mt-10px" />
         <SidebarSeparator />
         <NavSecondary items={data.navSecondary} className="mt-10px" />
         <SidebarSeparator />
