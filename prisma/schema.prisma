@@ -179,6 +179,7 @@ enum AkunJurnal {
   PEMBELIAN
   HPP
   KAS
+  BANK
   PIUTANG
 }
 
@@ -188,9 +189,8 @@ model Jurnal  {
   akun        AkunJurnal
   debit       Decimal  
   kredit      Decimal
-  kterangan   String?
+  keterangan   String?
   sumber      String?
-  sumberId    Int?
   userId      String
 
   createdAt   DateTime   @default(now())
