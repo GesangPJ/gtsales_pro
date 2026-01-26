@@ -62,6 +62,8 @@ export const ModelName = {
   Jurnal: 'Jurnal',
   Pengaturan: 'Pengaturan',
   Toko: 'Toko',
+  Gaji: 'Gaji',
+  GajiDetail: 'GajiDetail',
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification',
@@ -232,6 +234,35 @@ export const TokoScalarFieldEnum = {
 } as const
 
 export type TokoScalarFieldEnum = (typeof TokoScalarFieldEnum)[keyof typeof TokoScalarFieldEnum]
+
+
+export const GajiScalarFieldEnum = {
+  id: 'id',
+  kode_gaji: 'kode_gaji',
+  userId: 'userId',
+  nama_user: 'nama_user',
+  gaji_nett: 'gaji_nett',
+  tanggal: 'tanggal',
+  update: 'update'
+} as const
+
+export type GajiScalarFieldEnum = (typeof GajiScalarFieldEnum)[keyof typeof GajiScalarFieldEnum]
+
+
+export const GajiDetailScalarFieldEnum = {
+  id: 'id',
+  gajiId: 'gajiId',
+  gaji_pokok: 'gaji_pokok',
+  tidak_masuk: 'tidak_masuk',
+  bonus: 'bonus',
+  kategori_ptkp: 'kategori_ptkp',
+  isbpjs: 'isbpjs',
+  bpjs_nilai: 'bpjs_nilai',
+  ispph: 'ispph',
+  pph_nilai: 'pph_nilai'
+} as const
+
+export type GajiDetailScalarFieldEnum = (typeof GajiDetailScalarFieldEnum)[keyof typeof GajiDetailScalarFieldEnum]
 
 
 export const SessionScalarFieldEnum = {
