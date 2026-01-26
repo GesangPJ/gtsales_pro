@@ -71,12 +71,7 @@ export default function FormTambahAkun(){
         toast.success("Akun berhasil dibuat 🎉")
         formRef.current?.reset()
         setAlamat("")
-        
-
     }
-
-
-
     return(
     <div>
         <form onSubmit={handleSubmit} ref={formRef} className="text-lg">

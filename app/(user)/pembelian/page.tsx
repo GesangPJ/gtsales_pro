@@ -9,7 +9,7 @@ export default function HalamanBuatPembelian() {
           <h1 className="text-2xl font-bold">Pembelian Barang </h1>
       </div>
     <div className="px-4 lg:px-6">
-      {/* <FormPembelian/> */}
+      <FormPembelian/>
     </div>  
   </div>
   )

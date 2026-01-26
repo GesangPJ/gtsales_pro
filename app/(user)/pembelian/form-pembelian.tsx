@@ -1,4 +1,4 @@
-// Form Pembelian Barang
+// Form Pembelian Produk
 
 "use client"
 
@@ -20,13 +20,30 @@ import {
   InputGroupInput,
   InputGroupButton,
 } from "@/components/ui/input-group"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Label } from "@/components/ui/label"
 import { useDebouncedCallback } from "use-debounce" 
 import { baseUrl } from '@/lib/base-url'
+import {IconArrowBadgeDownFilled, IconDeviceFloppy} from "@tabler/icons-react"
+import { authClient } from "@/lib/auth-client"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
-type Barang = {
+type Produk = {
     id: number,
-    nama_barang: string,
+    nama: string,
     harga_beli: number,
     stok:number,
     jumlah: number,
@@ -34,22 +51,33 @@ type Barang = {
     totalharga: number,
 }
 
+type Distributor = {
+    id: number
+    nama: string
+}
+
 export default function FormPembelian(){
     const { items, addItem, clear } = useCartStore()
     const [data, setData] = useState(items)
     // const [barcode, setBarcode] = useState("")
     const [search, setSearch] = useState("")
-    const [searchResults, setSearchResults] = useState<Barang[]>([])
+    const [searchResults, setSearchResults] = useState<Produk[]>([])
     // const barcodeRef = useRef<HTMLInputElement>(null)
     const [loadingBayar, setLoadingBayar] = useState(false)
-    const [namaVendor, setNamaVendor] = useState("")
     const [biayaKirim, setBiayaKirim] = useState(0)
+    const [distributors, setDistributor] = useState<Distributor[]>([])
+    const [selectedDistributor, setSelectedDistributor] = useState<Distributor | null>(null)
+    const [metodeTransaksi, setMetodeTransaksi] = useState("")
 
+    const { data: session } = authClient.useSession()
+
+    const id_akun = session?.user.id
     
     const Reset = () => {
         clear()
-        setNamaVendor("")
         setBiayaKirim(0)
+        setSelectedDistributor(null)
+        setMetodeTransaksi("")
     }
 
     const total = items.reduce((sum, item) => sum + (item.harga_beli * item.jumlah), 0)
@@ -63,9 +91,25 @@ export default function FormPembelian(){
       minimumFractionDigits: 0,
     }).format(value)
 
+    async function ambilDistributor(){
+
+        try{
+            const respon = await fetch(`${baseUrl}/api/nama-distributor`)
+            if (!respon.ok) throw new Error("Gagal ambil nama distributor")
+
+            const hasil: Distributor[] = await respon.json()
+
+            setDistributor(hasil)
+
+        }catch(error){
+            console.error("Nama distributor tidak bisa diambil dari API", error)
+        }
+    }
+
     // Sync data dengan store
     useEffect(() => {
         setData(items)
+        ambilDistributor()
     }, [items])
 
     const debouncedSearch = useDebouncedCallback(async (query: string) => {
@@ -75,7 +119,7 @@ export default function FormPembelian(){
         }
         
         try {
-        const res = await fetch(`${baseUrl}/api/cari-barang?q=${encodeURIComponent(query)}`)
+        const res = await fetch(`${baseUrl}/api/cari-produk?q=${encodeURIComponent(query)}`)
         if (res.ok) {
             const results = await res.json()
             setSearchResults(results)
@@ -85,8 +129,9 @@ export default function FormPembelian(){
         }
     }, 300)
 
-    const handleNamaSelect = (barang: Barang) => {
-        addItem({ ...barang, jumlah: 1 })
+
+    const handleNamaSelect = (produk: Produk) => {
+        addItem({ ...produk, jumlah: 1 })
         setSearch("")
         setSearchResults([])
     }
@@ -96,10 +141,12 @@ export default function FormPembelian(){
         
         // Siapkan data untuk API
         const dataPembelian = {
-            namavendor: namaVendor || null,
+            userId: id_akun,
+            distributorId : selectedDistributor?.id || null,
             biayakirim: biayaKirim || 0,
-            totalharga: totalsemua,  // parseInt di server
-            barang: items.map(item => ({
+            metode: metodeTransaksi || "CASH",
+            totalharga: totalsemua,
+            produk: items.map(item => ({
                 id: item.id,
                 jumlah: item.jumlah,
                 harga_beli: item.harga_beli,
@@ -117,7 +164,9 @@ export default function FormPembelian(){
             if (res.ok) {
             toast.success('Transaksi Pembelian berhasil! 🎉')
             clear()  // Kosongkan cart
-            setNamaVendor("")
+            setSelectedDistributor(null)
+            setBiayaKirim(0)
+            setMetodeTransaksi("")
             } else {
             toast.error('Gagal membuat pembelian')
             }
@@ -130,42 +179,32 @@ export default function FormPembelian(){
 
     return(
         <div className="space-y-4">
-            <InputGroup>
-            <InputGroupInput 
-            className="font-mono text-xl tracking-widest"
-            placeholder="Ketik nama Vendor / distributor" 
-            type="text" 
-            value={namaVendor}  // ✅ Controlled value
-            onChange={(e) => setNamaVendor(e.target.value)}
-            />
-            <InputGroupAddon align="inline-start">
-            <Warehouse/>
-            </InputGroupAddon>
-                <InputGroupAddon align="inline-end">
-                
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                    <InputGroupButton
-                        variant="ghost"
-                        aria-label="Info"
-                        size="icon-xs"
+            <div className="max-w-full">
+                <DropdownMenu>
+                <DropdownMenuTrigger  asChild>
+                    <Button variant="outline">
+                        {selectedDistributor
+                            ? selectedDistributor.nama
+                            : "Pilih Distributor"}{" "}
+                        <IconArrowBadgeDownFilled className="ml-2" /></Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="max-w-150 max-h-60 overflow-y-auto p-1" align="start">
+                    {distributors.map((distributor) => (
+                    <DropdownMenuItem
+                        key={distributor.id}
+                        onClick={() => setSelectedDistributor(distributor)}
                     >
-                        <InfoIcon />
-                    </InputGroupButton>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        
-                    <p>Nama vendor / distributor opsional</p>
-                    </TooltipContent>
-                </Tooltip>
-                
-                </InputGroupAddon>
-            
-            </InputGroup>
+                        {distributor.nama}
+                    </DropdownMenuItem>
+                    ))}
+                </DropdownMenuContent>
+            </DropdownMenu>
+
+            </div>
             <InputGroup>
             <InputGroupInput
             className="font-mono text-xl tracking-widest"
-            placeholder="Ketik Nama Barang..."
+            placeholder="Ketik Nama Produk..."
             value={search}
             onChange={(e) => {
                 setSearch(e.target.value)
@@ -179,20 +218,20 @@ export default function FormPembelian(){
         
         {searchResults.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-h-64 overflow-y-auto border rounded-lg p-2 bg-background">
-            {searchResults.slice(0, 9).map((barang) => (
+            {searchResults.slice(0, 9).map((produk) => (
                 <div
-                key={barang.id}
+                key={produk.id}
                 className="p-3 hover:bg-accent rounded-md cursor-pointer border flex items-center space-x-3"
-                onClick={() => handleNamaSelect(barang)}
+                onClick={() => handleNamaSelect(produk)}
                 >
-                <div className="font-medium">{barang.nama_barang}</div>
-                <div className="text-sm text-muted-foreground ml-1">stok:{barang.stok}</div>
+                <div className="font-medium">{produk.nama}</div>
+                <div className="text-sm text-muted-foreground ml-1">stok:{produk.stok}</div>
                 <div className="text-sm text-muted-foreground ml-1">
                     {new Intl.NumberFormat("id-ID", { 
                     style: "currency", 
                     currency: "IDR", 
                     minimumFractionDigits: 0 
-                    }).format(barang.harga_beli)}
+                    }).format(produk.harga_beli)}
                 </div>
                 </div>
             ))}
@@ -234,8 +273,32 @@ export default function FormPembelian(){
                 </InputGroupAddon>
             </InputGroup>
             </div>
-            <div className="text-3xl font-bold text-right mb-4 mr-2">
-            Jumlah Total: {formatRupiah(totalsemua)}
+           <div className="text-right md:text-right space-y-2 mr-5 md:max-w-md md:ml-auto">
+            <div className='ml-auto md:w-48 mb-10 pr-3'>
+                <Select value={metodeTransaksi}
+                        onValueChange={setMetodeTransaksi}>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Pilih Metode Pembayaran" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            <SelectLabel>Metode Pembayaran</SelectLabel>  
+                            <SelectItem value="CASH">
+                                CASH
+                            </SelectItem>
+                            <SelectItem value="QRIS">
+                                QRIS
+                            </SelectItem>
+                            <SelectItem value="TRANSFER">
+                                TRANSFER
+                            </SelectItem>
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
+            </div>
+                <div className="text-3xl font-bold">
+                    Jumlah Total: {formatRupiah(totalsemua)}
+                </div>
             </div>
             <div className="flex gap-3">
             <Button
@@ -257,9 +320,3 @@ export default function FormPembelian(){
     )
 
 }
-
-
-
-
-
-

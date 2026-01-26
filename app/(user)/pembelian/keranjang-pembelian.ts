@@ -5,7 +5,7 @@ import { persist } from 'zustand/middleware'
 
 interface CartItem {
   id: number
-  nama_barang: string
+  nama: string
   harga_beli: number
   jumlah: number ,
   total:number,
