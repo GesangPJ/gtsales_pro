@@ -147,12 +147,14 @@ model Penjualan {
   kode          String  @unique
   status        StatusPenjualan
   metode        MetodeBayar
+  diskon        Int?  @default(0)
   jumlahtotal   Int
   userId        String
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  penjualandetail PenjualanDetail[]
   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([kode])
@@ -171,6 +173,7 @@ model PenjualanDetail {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  penjualan     Penjualan @relation(fields: [penjualanId], references: [id])
   produk        Produk  @relation(fields: [produkId], references: [id], onDelete: Cascade)
 }
 
