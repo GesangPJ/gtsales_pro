@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { Button } from "@/components/ui/button"
 import { ArrowUpDown, X} from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { useCartStore } from './keranjang'
+import { keranjangPenjualan } from './keranjang'
 
 
 type CartItem = {
@@ -75,7 +75,7 @@ export const columns: ColumnDef<CartItem>[] = [
       const [qty, setQty] = useState(row.original.jumlah)
       
       const updateQty = () => {
-        useCartStore.getState().updateQty(itemId, qty || 1)
+        keranjangPenjualan.getState().updateQty(itemId, qty || 1)
       }
       
       return (
@@ -126,7 +126,7 @@ export const columns: ColumnDef<CartItem>[] = [
           variant="ghost"
           size="icon"
           className="h-8 w-8"
-          onClick={() => useCartStore.getState().removeItem(row.original.id)}
+          onClick={() => keranjangPenjualan.getState().removeItem(row.original.id)}
         >
           <X className="h-4 w-4" />
         </Button>
