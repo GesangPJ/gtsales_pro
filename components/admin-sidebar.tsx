@@ -94,7 +94,7 @@ const data = {
     },
     {
       title: "Status Pembelian",
-      url: "/pembelian/status-pembelian",
+      url: "/status-pembelian",
       icon: IconReceipt,
     },
     {
