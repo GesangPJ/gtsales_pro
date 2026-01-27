@@ -148,6 +148,7 @@ model Penjualan {
   status        StatusPenjualan
   metode        MetodeBayar
   diskon        Int?  @default(0)
+  keterangan    String?
   jumlahtotal   Int
   userId        String
 
