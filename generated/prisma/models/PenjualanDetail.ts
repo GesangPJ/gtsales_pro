@@ -260,6 +260,7 @@ export type PenjualanDetailWhereInput = {
   total?: Prisma.IntFilter<"PenjualanDetail"> | number
   createdAt?: Prisma.DateTimeFilter<"PenjualanDetail"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PenjualanDetail"> | Date | string
+  penjualan?: Prisma.XOR<Prisma.PenjualanScalarRelationFilter, Prisma.PenjualanWhereInput>
   produk?: Prisma.XOR<Prisma.ProdukScalarRelationFilter, Prisma.ProdukWhereInput>
 }
 
@@ -272,6 +273,7 @@ export type PenjualanDetailOrderByWithRelationInput = {
   total?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  penjualan?: Prisma.PenjualanOrderByWithRelationInput
   produk?: Prisma.ProdukOrderByWithRelationInput
 }
 
@@ -287,6 +289,7 @@ export type PenjualanDetailWhereUniqueInput = Prisma.AtLeast<{
   total?: Prisma.IntFilter<"PenjualanDetail"> | number
   createdAt?: Prisma.DateTimeFilter<"PenjualanDetail"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PenjualanDetail"> | Date | string
+  penjualan?: Prisma.XOR<Prisma.PenjualanScalarRelationFilter, Prisma.PenjualanWhereInput>
   produk?: Prisma.XOR<Prisma.ProdukScalarRelationFilter, Prisma.ProdukWhereInput>
 }, "id">
 
@@ -321,12 +324,12 @@ export type PenjualanDetailScalarWhereWithAggregatesInput = {
 }
 
 export type PenjualanDetailCreateInput = {
-  penjualanId: number
   harga: number
   jumlah: number
   total: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualan: Prisma.PenjualanCreateNestedOneWithoutPenjualandetailInput
   produk: Prisma.ProdukCreateNestedOneWithoutPenjualandetailInput
 }
 
@@ -342,12 +345,12 @@ export type PenjualanDetailUncheckedCreateInput = {
 }
 
 export type PenjualanDetailUpdateInput = {
-  penjualanId?: Prisma.IntFieldUpdateOperationsInput | number
   harga?: Prisma.IntFieldUpdateOperationsInput | number
   jumlah?: Prisma.IntFieldUpdateOperationsInput | number
   total?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualan?: Prisma.PenjualanUpdateOneRequiredWithoutPenjualandetailNestedInput
   produk?: Prisma.ProdukUpdateOneRequiredWithoutPenjualandetailNestedInput
 }
 
@@ -374,7 +377,6 @@ export type PenjualanDetailCreateManyInput = {
 }
 
 export type PenjualanDetailUpdateManyMutationInput = {
-  penjualanId?: Prisma.IntFieldUpdateOperationsInput | number
   harga?: Prisma.IntFieldUpdateOperationsInput | number
   jumlah?: Prisma.IntFieldUpdateOperationsInput | number
   total?: Prisma.IntFieldUpdateOperationsInput | number
@@ -496,13 +498,55 @@ export type PenjualanDetailUncheckedUpdateManyWithoutProdukNestedInput = {
   deleteMany?: Prisma.PenjualanDetailScalarWhereInput | Prisma.PenjualanDetailScalarWhereInput[]
 }
 
+export type PenjualanDetailCreateNestedManyWithoutPenjualanInput = {
+  create?: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput> | Prisma.PenjualanDetailCreateWithoutPenjualanInput[] | Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput[]
+  connectOrCreate?: Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput | Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput[]
+  createMany?: Prisma.PenjualanDetailCreateManyPenjualanInputEnvelope
+  connect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+}
+
+export type PenjualanDetailUncheckedCreateNestedManyWithoutPenjualanInput = {
+  create?: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput> | Prisma.PenjualanDetailCreateWithoutPenjualanInput[] | Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput[]
+  connectOrCreate?: Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput | Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput[]
+  createMany?: Prisma.PenjualanDetailCreateManyPenjualanInputEnvelope
+  connect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+}
+
+export type PenjualanDetailUpdateManyWithoutPenjualanNestedInput = {
+  create?: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput> | Prisma.PenjualanDetailCreateWithoutPenjualanInput[] | Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput[]
+  connectOrCreate?: Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput | Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput[]
+  upsert?: Prisma.PenjualanDetailUpsertWithWhereUniqueWithoutPenjualanInput | Prisma.PenjualanDetailUpsertWithWhereUniqueWithoutPenjualanInput[]
+  createMany?: Prisma.PenjualanDetailCreateManyPenjualanInputEnvelope
+  set?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  disconnect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  delete?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  connect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  update?: Prisma.PenjualanDetailUpdateWithWhereUniqueWithoutPenjualanInput | Prisma.PenjualanDetailUpdateWithWhereUniqueWithoutPenjualanInput[]
+  updateMany?: Prisma.PenjualanDetailUpdateManyWithWhereWithoutPenjualanInput | Prisma.PenjualanDetailUpdateManyWithWhereWithoutPenjualanInput[]
+  deleteMany?: Prisma.PenjualanDetailScalarWhereInput | Prisma.PenjualanDetailScalarWhereInput[]
+}
+
+export type PenjualanDetailUncheckedUpdateManyWithoutPenjualanNestedInput = {
+  create?: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput> | Prisma.PenjualanDetailCreateWithoutPenjualanInput[] | Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput[]
+  connectOrCreate?: Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput | Prisma.PenjualanDetailCreateOrConnectWithoutPenjualanInput[]
+  upsert?: Prisma.PenjualanDetailUpsertWithWhereUniqueWithoutPenjualanInput | Prisma.PenjualanDetailUpsertWithWhereUniqueWithoutPenjualanInput[]
+  createMany?: Prisma.PenjualanDetailCreateManyPenjualanInputEnvelope
+  set?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  disconnect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  delete?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  connect?: Prisma.PenjualanDetailWhereUniqueInput | Prisma.PenjualanDetailWhereUniqueInput[]
+  update?: Prisma.PenjualanDetailUpdateWithWhereUniqueWithoutPenjualanInput | Prisma.PenjualanDetailUpdateWithWhereUniqueWithoutPenjualanInput[]
+  updateMany?: Prisma.PenjualanDetailUpdateManyWithWhereWithoutPenjualanInput | Prisma.PenjualanDetailUpdateManyWithWhereWithoutPenjualanInput[]
+  deleteMany?: Prisma.PenjualanDetailScalarWhereInput | Prisma.PenjualanDetailScalarWhereInput[]
+}
+
 export type PenjualanDetailCreateWithoutProdukInput = {
-  penjualanId: number
   harga: number
   jumlah: number
   total: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualan: Prisma.PenjualanCreateNestedOneWithoutPenjualandetailInput
 }
 
 export type PenjualanDetailUncheckedCreateWithoutProdukInput = {
@@ -554,6 +598,50 @@ export type PenjualanDetailScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"PenjualanDetail"> | Date | string
 }
 
+export type PenjualanDetailCreateWithoutPenjualanInput = {
+  harga: number
+  jumlah: number
+  total: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  produk: Prisma.ProdukCreateNestedOneWithoutPenjualandetailInput
+}
+
+export type PenjualanDetailUncheckedCreateWithoutPenjualanInput = {
+  id?: number
+  produkId: number
+  harga: number
+  jumlah: number
+  total: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PenjualanDetailCreateOrConnectWithoutPenjualanInput = {
+  where: Prisma.PenjualanDetailWhereUniqueInput
+  create: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput>
+}
+
+export type PenjualanDetailCreateManyPenjualanInputEnvelope = {
+  data: Prisma.PenjualanDetailCreateManyPenjualanInput | Prisma.PenjualanDetailCreateManyPenjualanInput[]
+}
+
+export type PenjualanDetailUpsertWithWhereUniqueWithoutPenjualanInput = {
+  where: Prisma.PenjualanDetailWhereUniqueInput
+  update: Prisma.XOR<Prisma.PenjualanDetailUpdateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedUpdateWithoutPenjualanInput>
+  create: Prisma.XOR<Prisma.PenjualanDetailCreateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedCreateWithoutPenjualanInput>
+}
+
+export type PenjualanDetailUpdateWithWhereUniqueWithoutPenjualanInput = {
+  where: Prisma.PenjualanDetailWhereUniqueInput
+  data: Prisma.XOR<Prisma.PenjualanDetailUpdateWithoutPenjualanInput, Prisma.PenjualanDetailUncheckedUpdateWithoutPenjualanInput>
+}
+
+export type PenjualanDetailUpdateManyWithWhereWithoutPenjualanInput = {
+  where: Prisma.PenjualanDetailScalarWhereInput
+  data: Prisma.XOR<Prisma.PenjualanDetailUpdateManyMutationInput, Prisma.PenjualanDetailUncheckedUpdateManyWithoutPenjualanInput>
+}
+
 export type PenjualanDetailCreateManyProdukInput = {
   id?: number
   penjualanId: number
@@ -565,12 +653,12 @@ export type PenjualanDetailCreateManyProdukInput = {
 }
 
 export type PenjualanDetailUpdateWithoutProdukInput = {
-  penjualanId?: Prisma.IntFieldUpdateOperationsInput | number
   harga?: Prisma.IntFieldUpdateOperationsInput | number
   jumlah?: Prisma.IntFieldUpdateOperationsInput | number
   total?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualan?: Prisma.PenjualanUpdateOneRequiredWithoutPenjualandetailNestedInput
 }
 
 export type PenjualanDetailUncheckedUpdateWithoutProdukInput = {
@@ -593,6 +681,45 @@ export type PenjualanDetailUncheckedUpdateManyWithoutProdukInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+export type PenjualanDetailCreateManyPenjualanInput = {
+  id?: number
+  produkId: number
+  harga: number
+  jumlah: number
+  total: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PenjualanDetailUpdateWithoutPenjualanInput = {
+  harga?: Prisma.IntFieldUpdateOperationsInput | number
+  jumlah?: Prisma.IntFieldUpdateOperationsInput | number
+  total?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  produk?: Prisma.ProdukUpdateOneRequiredWithoutPenjualandetailNestedInput
+}
+
+export type PenjualanDetailUncheckedUpdateWithoutPenjualanInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  produkId?: Prisma.IntFieldUpdateOperationsInput | number
+  harga?: Prisma.IntFieldUpdateOperationsInput | number
+  jumlah?: Prisma.IntFieldUpdateOperationsInput | number
+  total?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type PenjualanDetailUncheckedUpdateManyWithoutPenjualanInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  produkId?: Prisma.IntFieldUpdateOperationsInput | number
+  harga?: Prisma.IntFieldUpdateOperationsInput | number
+  jumlah?: Prisma.IntFieldUpdateOperationsInput | number
+  total?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 
 
 export type PenjualanDetailSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -604,6 +731,7 @@ export type PenjualanDetailSelect<ExtArgs extends runtime.Types.Extensions.Inter
   total?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["penjualanDetail"]>
 
@@ -616,6 +744,7 @@ export type PenjualanDetailSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   total?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["penjualanDetail"]>
 
@@ -628,6 +757,7 @@ export type PenjualanDetailSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   total?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["penjualanDetail"]>
 
@@ -644,18 +774,22 @@ export type PenjualanDetailSelectScalar = {
 
 export type PenjualanDetailOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "penjualanId" | "produkId" | "harga" | "jumlah" | "total" | "createdAt" | "updatedAt", ExtArgs["result"]["penjualanDetail"]>
 export type PenjualanDetailInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }
 export type PenjualanDetailIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }
 export type PenjualanDetailIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  penjualan?: boolean | Prisma.PenjualanDefaultArgs<ExtArgs>
   produk?: boolean | Prisma.ProdukDefaultArgs<ExtArgs>
 }
 
 export type $PenjualanDetailPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PenjualanDetail"
   objects: {
+    penjualan: Prisma.$PenjualanPayload<ExtArgs>
     produk: Prisma.$ProdukPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1061,6 +1195,7 @@ readonly fields: PenjualanDetailFieldRefs;
  */
 export interface Prisma__PenjualanDetailClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  penjualan<T extends Prisma.PenjualanDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PenjualanDefaultArgs<ExtArgs>>): Prisma.Prisma__PenjualanClient<runtime.Types.Result.GetResult<Prisma.$PenjualanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   produk<T extends Prisma.ProdukDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProdukDefaultArgs<ExtArgs>>): Prisma.Prisma__ProdukClient<runtime.Types.Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
