@@ -11,7 +11,7 @@ export async function POST(req: NextRequest){
         const body = await req.json()
 
         const {
-            userId, produk, metode, diskon, jumlahtotal
+            userId, status, produk, metode, diskon, jumlahtotal, keterangan,
         } = body
 
         if(!produk || produk.length ===0){
@@ -69,9 +69,10 @@ export async function POST(req: NextRequest){
                 data:{
                     kode: kode_penjualan,
                     userId,
-                    status:"SELESAI",
+                    status,
                     metode,
                     diskon,
+                    keterangan,
                     jumlahtotal,
                     penjualandetail:{
                         create: produk.map((produk: any)=>({
@@ -155,6 +156,11 @@ export async function GET(_req: NextRequest){
                 metode:true,
                 diskon:true,
                 jumlahtotal:true,
+                user:{
+                    select:{
+                        name:true,
+                    }
+                }
             },
         })
 
@@ -166,9 +172,14 @@ export async function GET(_req: NextRequest){
 
         }
 
+        const hasil = data_penjualan.map((penjualan: any)=>({
+            ...penjualan,
+            nama_kasir: penjualan.user?.name || "-",
+        }))
+
         return NextResponse.json({
             message: "Data Penjualan berhasil dikirim",
-            data: data_penjualan,
+            data: hasil,
         }, {status: 200})
 
 
