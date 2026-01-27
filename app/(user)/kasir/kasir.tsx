@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { useCartStore } from './keranjang'
+import {keranjangPenjualan } from './keranjang'
 import { DataTable } from "@/components/data-table"
 import { toast } from "sonner"
 import { columns } from "./kolom-kasir"
@@ -45,7 +45,7 @@ export default function FormKasir(){
     const [value, setValue] = useState("")
     const maxLength = 150 
     const remaining = maxLength - value.length
-    const { items, addItem, clear } = useCartStore()
+    const { items, addItem, clear } = keranjangPenjualan()
     const [data, setData] = useState(items)
     const [barcode, setBarcode] = useState("")
     const [search, setSearch] = useState("")
