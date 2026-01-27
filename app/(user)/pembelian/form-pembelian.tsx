@@ -3,7 +3,7 @@
 "use client"
 
 import { useState, useEffect} from 'react'
-import { useCartStore } from './keranjang-pembelian'
+import { keranjangPembelian } from './keranjang-pembelian'
 import { DataTable } from "@/components/data-table"
 import { toast } from "sonner"
 import { columnpembelian } from './kolom-pembelian'
@@ -57,7 +57,7 @@ type Distributor = {
 }
 
 export default function FormPembelian(){
-    const { items, addItem, clear } = useCartStore()
+    const { items, addItem, clear } = keranjangPembelian()
     const [data, setData] = useState(items)
     // const [barcode, setBarcode] = useState("")
     const [search, setSearch] = useState("")
