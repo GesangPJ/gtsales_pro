@@ -41,8 +41,11 @@ const data = {
       url: "/kasir",
       icon: IconCashRegister,
     },
-    
-    
+    {
+      title: "Data Penjualan",
+      url: "/penjualan",
+      icon: IconDatabaseDollar,
+    },
   ],
   navTambah:[
     {
