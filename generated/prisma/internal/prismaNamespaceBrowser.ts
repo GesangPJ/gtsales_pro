@@ -175,6 +175,7 @@ export const PenjualanScalarFieldEnum = {
   kode: 'kode',
   status: 'status',
   metode: 'metode',
+  diskon: 'diskon',
   jumlahtotal: 'jumlahtotal',
   userId: 'userId',
   createdAt: 'createdAt',
