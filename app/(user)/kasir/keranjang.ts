@@ -18,7 +18,7 @@ interface CartState {
   clear: () => void
 }
 
-export const useCartStore = create<CartState>()(
+export const keranjangPenjualan = create<CartState>()(
   persist(
     (set, get) => ({
       items: [],
@@ -33,6 +33,6 @@ export const useCartStore = create<CartState>()(
       })),
       clear: () => set({ items: [] })
     }),
-    { name: 'pos-cart' }
+    { name: 'keranjang-penjualan' }
   )
 )
