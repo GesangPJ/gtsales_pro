@@ -181,6 +181,8 @@ model PenjualanDetail {
 enum AkunJurnal {
   PENJUALAN
   PEMBELIAN
+  RETURN_PENJUALAN
+  RETURN_PEMBELIAN
   HPP
   KAS
   BANK
