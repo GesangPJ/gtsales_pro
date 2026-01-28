@@ -106,11 +106,13 @@ export function NavUser({ user }: NavUserProps) {
                   <p className="font-bold">Akun</p>
               </DropdownMenuItem>
               </Link>
-              
+              <Link href="/panduan">
               <DropdownMenuItem>
               <IconHelp/>
               Panduan
             </DropdownMenuItem>
+              </Link>
+              
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleLogout}>
