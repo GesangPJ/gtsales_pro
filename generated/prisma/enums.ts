@@ -39,6 +39,8 @@ export type MetodeBayar = (typeof MetodeBayar)[keyof typeof MetodeBayar]
 export const AkunJurnal = {
   PENJUALAN: 'PENJUALAN',
   PEMBELIAN: 'PEMBELIAN',
+  RETURN_PENJUALAN: 'RETURN_PENJUALAN',
+  RETURN_PEMBELIAN: 'RETURN_PEMBELIAN',
   HPP: 'HPP',
   KAS: 'KAS',
   BANK: 'BANK',
