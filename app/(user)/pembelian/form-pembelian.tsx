@@ -313,7 +313,7 @@ export default function FormPembelian(){
                 onClick={handleBayar}
                 disabled={loadingBayar || items.length === 0}
             >
-                {loadingBayar ? "Memproses..." : "Pesan Barang"}
+                {loadingBayar ? "Memproses..." : "Pesan Produk"}
             </Button>
             </div>
         </div>
