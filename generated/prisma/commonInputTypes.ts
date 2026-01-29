@@ -207,6 +207,23 @@ export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
 }
 
+export type EnumStatusPenawaranFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusPenawaran | Prisma.EnumStatusPenawaranFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusPenawaran[]
+  notIn?: $Enums.StatusPenawaran[]
+  not?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel> | $Enums.StatusPenawaran
+}
+
+export type EnumStatusPenawaranWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusPenawaran | Prisma.EnumStatusPenawaranFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusPenawaran[]
+  notIn?: $Enums.StatusPenawaran[]
+  not?: Prisma.NestedEnumStatusPenawaranWithAggregatesFilter<$PrismaModel> | $Enums.StatusPenawaran
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel>
+}
+
 export type EnumStatusPenjualanFilter<$PrismaModel = never> = {
   equals?: $Enums.StatusPenjualan | Prisma.EnumStatusPenjualanFieldRefInput<$PrismaModel>
   in?: $Enums.StatusPenjualan[]
@@ -501,6 +518,23 @@ export type NestedFloatNullableFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+}
+
+export type NestedEnumStatusPenawaranFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusPenawaran | Prisma.EnumStatusPenawaranFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusPenawaran[]
+  notIn?: $Enums.StatusPenawaran[]
+  not?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel> | $Enums.StatusPenawaran
+}
+
+export type NestedEnumStatusPenawaranWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StatusPenawaran | Prisma.EnumStatusPenawaranFieldRefInput<$PrismaModel>
+  in?: $Enums.StatusPenawaran[]
+  notIn?: $Enums.StatusPenawaran[]
+  not?: Prisma.NestedEnumStatusPenawaranWithAggregatesFilter<$PrismaModel> | $Enums.StatusPenawaran
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStatusPenawaranFilter<$PrismaModel>
 }
 
 export type NestedEnumStatusPenjualanFilter<$PrismaModel = never> = {
