@@ -70,6 +70,16 @@ export type Pembelian = Prisma.PembelianModel
  */
 export type PembelianDetail = Prisma.PembelianDetailModel
 /**
+ * Model PenawaranPenjualan
+ * 
+ */
+export type PenawaranPenjualan = Prisma.PenawaranPenjualanModel
+/**
+ * Model DetailPenawaranPenjualan
+ * 
+ */
+export type DetailPenawaranPenjualan = Prisma.DetailPenawaranPenjualanModel
+/**
  * Model Penjualan
  * 
  */
