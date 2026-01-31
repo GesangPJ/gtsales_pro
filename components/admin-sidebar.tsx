@@ -19,6 +19,8 @@ import {
   IconUsersPlus,
   IconBuildingWarehouse,
   IconDatabasePlus,
+  IconFileInvoice,
+  IconPencilPlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -142,7 +144,21 @@ const data = {
       url:"/distributor/tambah-distributor",
       icon: IconDatabasePlus,
     },
-  ]
+  ],
+  jurnal:[
+    {
+      title:"Data Jurnal",
+      url: "/jurnal",
+      icon: IconFileInvoice,
+
+    },
+    {
+      title: "Tambah Jurnal",
+      url: "/jurnal/tambah",
+      icon: IconPencilPlus,
+
+    },
+  ],
 }
 
 import { AppInfo } from "./app-info"
@@ -184,6 +200,8 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
           <NavSecondary items={data.distributor} className="mt-10px" />
+          <SidebarSeparator />
+          <NavSecondary items={data.jurnal} className="mt-10px" />
           <SidebarSeparator />
          <NavSecondary items={data.navAkun} className="mt-10px" />
       </SidebarContent>
