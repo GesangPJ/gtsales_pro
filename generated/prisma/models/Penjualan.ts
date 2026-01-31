@@ -28,11 +28,13 @@ export type AggregatePenjualan = {
 
 export type PenjualanAvgAggregateOutputType = {
   id: number | null
+  diskon: number | null
   jumlahtotal: number | null
 }
 
 export type PenjualanSumAggregateOutputType = {
   id: number | null
+  diskon: number | null
   jumlahtotal: number | null
 }
 
@@ -41,6 +43,8 @@ export type PenjualanMinAggregateOutputType = {
   kode: string | null
   status: $Enums.StatusPenjualan | null
   metode: $Enums.MetodeBayar | null
+  diskon: number | null
+  keterangan: string | null
   jumlahtotal: number | null
   userId: string | null
   createdAt: Date | null
@@ -52,6 +56,8 @@ export type PenjualanMaxAggregateOutputType = {
   kode: string | null
   status: $Enums.StatusPenjualan | null
   metode: $Enums.MetodeBayar | null
+  diskon: number | null
+  keterangan: string | null
   jumlahtotal: number | null
   userId: string | null
   createdAt: Date | null
@@ -63,6 +69,8 @@ export type PenjualanCountAggregateOutputType = {
   kode: number
   status: number
   metode: number
+  diskon: number
+  keterangan: number
   jumlahtotal: number
   userId: number
   createdAt: number
@@ -73,11 +81,13 @@ export type PenjualanCountAggregateOutputType = {
 
 export type PenjualanAvgAggregateInputType = {
   id?: true
+  diskon?: true
   jumlahtotal?: true
 }
 
 export type PenjualanSumAggregateInputType = {
   id?: true
+  diskon?: true
   jumlahtotal?: true
 }
 
@@ -86,6 +96,8 @@ export type PenjualanMinAggregateInputType = {
   kode?: true
   status?: true
   metode?: true
+  diskon?: true
+  keterangan?: true
   jumlahtotal?: true
   userId?: true
   createdAt?: true
@@ -97,6 +109,8 @@ export type PenjualanMaxAggregateInputType = {
   kode?: true
   status?: true
   metode?: true
+  diskon?: true
+  keterangan?: true
   jumlahtotal?: true
   userId?: true
   createdAt?: true
@@ -108,6 +122,8 @@ export type PenjualanCountAggregateInputType = {
   kode?: true
   status?: true
   metode?: true
+  diskon?: true
+  keterangan?: true
   jumlahtotal?: true
   userId?: true
   createdAt?: true
@@ -206,6 +222,8 @@ export type PenjualanGroupByOutputType = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon: number | null
+  keterangan: string | null
   jumlahtotal: number
   userId: string
   createdAt: Date
@@ -240,10 +258,13 @@ export type PenjualanWhereInput = {
   kode?: Prisma.StringFilter<"Penjualan"> | string
   status?: Prisma.EnumStatusPenjualanFilter<"Penjualan"> | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFilter<"Penjualan"> | $Enums.MetodeBayar
+  diskon?: Prisma.IntNullableFilter<"Penjualan"> | number | null
+  keterangan?: Prisma.StringNullableFilter<"Penjualan"> | string | null
   jumlahtotal?: Prisma.IntFilter<"Penjualan"> | number
   userId?: Prisma.StringFilter<"Penjualan"> | string
   createdAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
+  penjualandetail?: Prisma.PenjualanDetailListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -252,10 +273,13 @@ export type PenjualanOrderByWithRelationInput = {
   kode?: Prisma.SortOrder
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
+  diskon?: Prisma.SortOrderInput | Prisma.SortOrder
+  keterangan?: Prisma.SortOrderInput | Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  penjualandetail?: Prisma.PenjualanDetailOrderByRelationAggregateInput
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -267,10 +291,13 @@ export type PenjualanWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.PenjualanWhereInput | Prisma.PenjualanWhereInput[]
   status?: Prisma.EnumStatusPenjualanFilter<"Penjualan"> | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFilter<"Penjualan"> | $Enums.MetodeBayar
+  diskon?: Prisma.IntNullableFilter<"Penjualan"> | number | null
+  keterangan?: Prisma.StringNullableFilter<"Penjualan"> | string | null
   jumlahtotal?: Prisma.IntFilter<"Penjualan"> | number
   userId?: Prisma.StringFilter<"Penjualan"> | string
   createdAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
+  penjualandetail?: Prisma.PenjualanDetailListRelationFilter
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "kode">
 
@@ -279,6 +306,8 @@ export type PenjualanOrderByWithAggregationInput = {
   kode?: Prisma.SortOrder
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
+  diskon?: Prisma.SortOrderInput | Prisma.SortOrder
+  keterangan?: Prisma.SortOrderInput | Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -298,6 +327,8 @@ export type PenjualanScalarWhereWithAggregatesInput = {
   kode?: Prisma.StringWithAggregatesFilter<"Penjualan"> | string
   status?: Prisma.EnumStatusPenjualanWithAggregatesFilter<"Penjualan"> | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarWithAggregatesFilter<"Penjualan"> | $Enums.MetodeBayar
+  diskon?: Prisma.IntNullableWithAggregatesFilter<"Penjualan"> | number | null
+  keterangan?: Prisma.StringNullableWithAggregatesFilter<"Penjualan"> | string | null
   jumlahtotal?: Prisma.IntWithAggregatesFilter<"Penjualan"> | number
   userId?: Prisma.StringWithAggregatesFilter<"Penjualan"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Penjualan"> | Date | string
@@ -308,9 +339,12 @@ export type PenjualanCreateInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutPenjualanInput
   user: Prisma.UserCreateNestedOneWithoutPenjualanInput
 }
 
@@ -319,19 +353,25 @@ export type PenjualanUncheckedCreateInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutPenjualanInput
 }
 
 export type PenjualanUpdateInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutPenjualanNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutPenjualanNestedInput
 }
 
@@ -340,10 +380,13 @@ export type PenjualanUncheckedUpdateInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutPenjualanNestedInput
 }
 
 export type PenjualanCreateManyInput = {
@@ -351,6 +394,8 @@ export type PenjualanCreateManyInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   userId: string
   createdAt?: Date | string
@@ -361,6 +406,8 @@ export type PenjualanUpdateManyMutationInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -371,6 +418,8 @@ export type PenjualanUncheckedUpdateManyInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -392,6 +441,8 @@ export type PenjualanCountOrderByAggregateInput = {
   kode?: Prisma.SortOrder
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
+  diskon?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -400,6 +451,7 @@ export type PenjualanCountOrderByAggregateInput = {
 
 export type PenjualanAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  diskon?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
 }
 
@@ -408,6 +460,8 @@ export type PenjualanMaxOrderByAggregateInput = {
   kode?: Prisma.SortOrder
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
+  diskon?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -419,6 +473,8 @@ export type PenjualanMinOrderByAggregateInput = {
   kode?: Prisma.SortOrder
   status?: Prisma.SortOrder
   metode?: Prisma.SortOrder
+  diskon?: Prisma.SortOrder
+  keterangan?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -427,7 +483,13 @@ export type PenjualanMinOrderByAggregateInput = {
 
 export type PenjualanSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  diskon?: Prisma.SortOrder
   jumlahtotal?: Prisma.SortOrder
+}
+
+export type PenjualanScalarRelationFilter = {
+  is?: Prisma.PenjualanWhereInput
+  isNot?: Prisma.PenjualanWhereInput
 }
 
 export type PenjualanCreateNestedManyWithoutUserInput = {
@@ -476,13 +538,30 @@ export type EnumStatusPenjualanFieldUpdateOperationsInput = {
   set?: $Enums.StatusPenjualan
 }
 
+export type PenjualanCreateNestedOneWithoutPenjualandetailInput = {
+  create?: Prisma.XOR<Prisma.PenjualanCreateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedCreateWithoutPenjualandetailInput>
+  connectOrCreate?: Prisma.PenjualanCreateOrConnectWithoutPenjualandetailInput
+  connect?: Prisma.PenjualanWhereUniqueInput
+}
+
+export type PenjualanUpdateOneRequiredWithoutPenjualandetailNestedInput = {
+  create?: Prisma.XOR<Prisma.PenjualanCreateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedCreateWithoutPenjualandetailInput>
+  connectOrCreate?: Prisma.PenjualanCreateOrConnectWithoutPenjualandetailInput
+  upsert?: Prisma.PenjualanUpsertWithoutPenjualandetailInput
+  connect?: Prisma.PenjualanWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PenjualanUpdateToOneWithWhereWithoutPenjualandetailInput, Prisma.PenjualanUpdateWithoutPenjualandetailInput>, Prisma.PenjualanUncheckedUpdateWithoutPenjualandetailInput>
+}
+
 export type PenjualanCreateWithoutUserInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutPenjualanInput
 }
 
 export type PenjualanUncheckedCreateWithoutUserInput = {
@@ -490,9 +569,12 @@ export type PenjualanUncheckedCreateWithoutUserInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutPenjualanInput
 }
 
 export type PenjualanCreateOrConnectWithoutUserInput = {
@@ -528,10 +610,78 @@ export type PenjualanScalarWhereInput = {
   kode?: Prisma.StringFilter<"Penjualan"> | string
   status?: Prisma.EnumStatusPenjualanFilter<"Penjualan"> | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFilter<"Penjualan"> | $Enums.MetodeBayar
+  diskon?: Prisma.IntNullableFilter<"Penjualan"> | number | null
+  keterangan?: Prisma.StringNullableFilter<"Penjualan"> | string | null
   jumlahtotal?: Prisma.IntFilter<"Penjualan"> | number
   userId?: Prisma.StringFilter<"Penjualan"> | string
   createdAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Penjualan"> | Date | string
+}
+
+export type PenjualanCreateWithoutPenjualandetailInput = {
+  kode: string
+  status: $Enums.StatusPenjualan
+  metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
+  jumlahtotal: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutPenjualanInput
+}
+
+export type PenjualanUncheckedCreateWithoutPenjualandetailInput = {
+  id?: number
+  kode: string
+  status: $Enums.StatusPenjualan
+  metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
+  jumlahtotal: number
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type PenjualanCreateOrConnectWithoutPenjualandetailInput = {
+  where: Prisma.PenjualanWhereUniqueInput
+  create: Prisma.XOR<Prisma.PenjualanCreateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedCreateWithoutPenjualandetailInput>
+}
+
+export type PenjualanUpsertWithoutPenjualandetailInput = {
+  update: Prisma.XOR<Prisma.PenjualanUpdateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedUpdateWithoutPenjualandetailInput>
+  create: Prisma.XOR<Prisma.PenjualanCreateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedCreateWithoutPenjualandetailInput>
+  where?: Prisma.PenjualanWhereInput
+}
+
+export type PenjualanUpdateToOneWithWhereWithoutPenjualandetailInput = {
+  where?: Prisma.PenjualanWhereInput
+  data: Prisma.XOR<Prisma.PenjualanUpdateWithoutPenjualandetailInput, Prisma.PenjualanUncheckedUpdateWithoutPenjualandetailInput>
+}
+
+export type PenjualanUpdateWithoutPenjualandetailInput = {
+  kode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
+  metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutPenjualanNestedInput
+}
+
+export type PenjualanUncheckedUpdateWithoutPenjualandetailInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  kode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
+  metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PenjualanCreateManyUserInput = {
@@ -539,6 +689,8 @@ export type PenjualanCreateManyUserInput = {
   kode: string
   status: $Enums.StatusPenjualan
   metode: $Enums.MetodeBayar
+  diskon?: number | null
+  keterangan?: string | null
   jumlahtotal: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -548,9 +700,12 @@ export type PenjualanUpdateWithoutUserInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutPenjualanNestedInput
 }
 
 export type PenjualanUncheckedUpdateWithoutUserInput = {
@@ -558,9 +713,12 @@ export type PenjualanUncheckedUpdateWithoutUserInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutPenjualanNestedInput
 }
 
 export type PenjualanUncheckedUpdateManyWithoutUserInput = {
@@ -568,11 +726,42 @@ export type PenjualanUncheckedUpdateManyWithoutUserInput = {
   kode?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumStatusPenjualanFieldUpdateOperationsInput | $Enums.StatusPenjualan
   metode?: Prisma.EnumMetodeBayarFieldUpdateOperationsInput | $Enums.MetodeBayar
+  diskon?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   jumlahtotal?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type PenjualanCountOutputType
+ */
+
+export type PenjualanCountOutputType = {
+  penjualandetail: number
+}
+
+export type PenjualanCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  penjualandetail?: boolean | PenjualanCountOutputTypeCountPenjualandetailArgs
+}
+
+/**
+ * PenjualanCountOutputType without action
+ */
+export type PenjualanCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PenjualanCountOutputType
+   */
+  select?: Prisma.PenjualanCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * PenjualanCountOutputType without action
+ */
+export type PenjualanCountOutputTypeCountPenjualandetailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PenjualanDetailWhereInput
+}
 
 
 export type PenjualanSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -580,11 +769,15 @@ export type PenjualanSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   kode?: boolean
   status?: boolean
   metode?: boolean
+  diskon?: boolean
+  keterangan?: boolean
   jumlahtotal?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  penjualandetail?: boolean | Prisma.Penjualan$penjualandetailArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  _count?: boolean | Prisma.PenjualanCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["penjualan"]>
 
 export type PenjualanSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -592,6 +785,8 @@ export type PenjualanSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   kode?: boolean
   status?: boolean
   metode?: boolean
+  diskon?: boolean
+  keterangan?: boolean
   jumlahtotal?: boolean
   userId?: boolean
   createdAt?: boolean
@@ -604,6 +799,8 @@ export type PenjualanSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   kode?: boolean
   status?: boolean
   metode?: boolean
+  diskon?: boolean
+  keterangan?: boolean
   jumlahtotal?: boolean
   userId?: boolean
   createdAt?: boolean
@@ -616,15 +813,19 @@ export type PenjualanSelectScalar = {
   kode?: boolean
   status?: boolean
   metode?: boolean
+  diskon?: boolean
+  keterangan?: boolean
   jumlahtotal?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PenjualanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "status" | "metode" | "jumlahtotal" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["penjualan"]>
+export type PenjualanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "kode" | "status" | "metode" | "diskon" | "keterangan" | "jumlahtotal" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["penjualan"]>
 export type PenjualanInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  penjualandetail?: boolean | Prisma.Penjualan$penjualandetailArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  _count?: boolean | Prisma.PenjualanCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PenjualanIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -636,6 +837,7 @@ export type PenjualanIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 export type $PenjualanPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Penjualan"
   objects: {
+    penjualandetail: Prisma.$PenjualanDetailPayload<ExtArgs>[]
     user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -643,6 +845,8 @@ export type $PenjualanPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     kode: string
     status: $Enums.StatusPenjualan
     metode: $Enums.MetodeBayar
+    diskon: number | null
+    keterangan: string | null
     jumlahtotal: number
     userId: string
     createdAt: Date
@@ -1041,6 +1245,7 @@ readonly fields: PenjualanFieldRefs;
  */
 export interface Prisma__PenjualanClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  penjualandetail<T extends Prisma.Penjualan$penjualandetailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Penjualan$penjualandetailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PenjualanDetailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1075,6 +1280,8 @@ export interface PenjualanFieldRefs {
   readonly kode: Prisma.FieldRef<"Penjualan", 'String'>
   readonly status: Prisma.FieldRef<"Penjualan", 'StatusPenjualan'>
   readonly metode: Prisma.FieldRef<"Penjualan", 'MetodeBayar'>
+  readonly diskon: Prisma.FieldRef<"Penjualan", 'Int'>
+  readonly keterangan: Prisma.FieldRef<"Penjualan", 'String'>
   readonly jumlahtotal: Prisma.FieldRef<"Penjualan", 'Int'>
   readonly userId: Prisma.FieldRef<"Penjualan", 'String'>
   readonly createdAt: Prisma.FieldRef<"Penjualan", 'DateTime'>
@@ -1470,6 +1677,30 @@ export type PenjualanDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Limit how many Penjualans to delete.
    */
   limit?: number
+}
+
+/**
+ * Penjualan.penjualandetail
+ */
+export type Penjualan$penjualandetailArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PenjualanDetail
+   */
+  select?: Prisma.PenjualanDetailSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PenjualanDetail
+   */
+  omit?: Prisma.PenjualanDetailOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PenjualanDetailInclude<ExtArgs> | null
+  where?: Prisma.PenjualanDetailWhereInput
+  orderBy?: Prisma.PenjualanDetailOrderByWithRelationInput | Prisma.PenjualanDetailOrderByWithRelationInput[]
+  cursor?: Prisma.PenjualanDetailWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PenjualanDetailScalarFieldEnum | Prisma.PenjualanDetailScalarFieldEnum[]
 }
 
 /**

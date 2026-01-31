@@ -57,6 +57,8 @@ export const ModelName = {
   Distributor: 'Distributor',
   Pembelian: 'Pembelian',
   PembelianDetail: 'PembelianDetail',
+  PenawaranPenjualan: 'PenawaranPenjualan',
+  DetailPenawaranPenjualan: 'DetailPenawaranPenjualan',
   Penjualan: 'Penjualan',
   PenjualanDetail: 'PenjualanDetail',
   Jurnal: 'Jurnal',
@@ -170,11 +172,46 @@ export const PembelianDetailScalarFieldEnum = {
 export type PembelianDetailScalarFieldEnum = (typeof PembelianDetailScalarFieldEnum)[keyof typeof PembelianDetailScalarFieldEnum]
 
 
+export const PenawaranPenjualanScalarFieldEnum = {
+  id: 'id',
+  kode: 'kode',
+  nama_pelanggan: 'nama_pelanggan',
+  alamat_pelanggan: 'alamat_pelanggan',
+  email_pelanggan: 'email_pelanggan',
+  keterangan: 'keterangan',
+  status: 'status',
+  metode: 'metode',
+  jumlahtotal: 'jumlahtotal',
+  diskon: 'diskon',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PenawaranPenjualanScalarFieldEnum = (typeof PenawaranPenjualanScalarFieldEnum)[keyof typeof PenawaranPenjualanScalarFieldEnum]
+
+
+export const DetailPenawaranPenjualanScalarFieldEnum = {
+  id: 'id',
+  idpenawaran_s: 'idpenawaran_s',
+  produkId: 'produkId',
+  harga: 'harga',
+  jumlah: 'jumlah',
+  total: 'total',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DetailPenawaranPenjualanScalarFieldEnum = (typeof DetailPenawaranPenjualanScalarFieldEnum)[keyof typeof DetailPenawaranPenjualanScalarFieldEnum]
+
+
 export const PenjualanScalarFieldEnum = {
   id: 'id',
   kode: 'kode',
   status: 'status',
   metode: 'metode',
+  diskon: 'diskon',
+  keterangan: 'keterangan',
   jumlahtotal: 'jumlahtotal',
   userId: 'userId',
   createdAt: 'createdAt',

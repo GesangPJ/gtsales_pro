@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { Button } from "@/components/ui/button"
 import { ArrowUpDown, Trash, X} from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { useCartStore } from './keranjang-pembelian'
+import { keranjangPembelian } from './keranjang-pembelian'
 
 
 type CartItem = {
@@ -70,7 +70,7 @@ export const columnpembelian : ColumnDef<CartItem>[] = [
 
           const updateHargaBeli = () => {
             const finalHarga = parseInt(harga.toString()) || hargaBeli
-            useCartStore.getState().updateHargaBeli(itemId, finalHarga)
+            keranjangPembelian.getState().updateHargaBeli(itemId, finalHarga)
             setEditing(false)
           }
     
@@ -115,7 +115,7 @@ export const columnpembelian : ColumnDef<CartItem>[] = [
           const [qty, setQty] = useState(row.original.jumlah)
           
           const updateQty = () => {
-            useCartStore.getState().updateQty(itemId, qty || 1)
+            keranjangPembelian.getState().updateQty(itemId, qty || 1)
           }
           
           return (
@@ -166,7 +166,7 @@ export const columnpembelian : ColumnDef<CartItem>[] = [
               <Button
               size="icon"
               className=" bg-red-600 hover:bg-red-300 rounded-none rounded-b-none"
-              onClick={() => useCartStore.getState().removeItem(row.original.id)}
+              onClick={() => keranjangPembelian.getState().removeItem(row.original.id)}
             >
               <X className="w-64 h-64 text-white" />
             </Button>

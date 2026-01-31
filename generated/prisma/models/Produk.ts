@@ -283,6 +283,7 @@ export type ProdukWhereInput = {
   kategori?: Prisma.XOR<Prisma.KategoriScalarRelationFilter, Prisma.KategoriWhereInput>
   pembeliandetal?: Prisma.PembelianDetailListRelationFilter
   penjualandetail?: Prisma.PenjualanDetailListRelationFilter
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanListRelationFilter
 }
 
 export type ProdukOrderByWithRelationInput = {
@@ -300,6 +301,7 @@ export type ProdukOrderByWithRelationInput = {
   kategori?: Prisma.KategoriOrderByWithRelationInput
   pembeliandetal?: Prisma.PembelianDetailOrderByRelationAggregateInput
   penjualandetail?: Prisma.PenjualanDetailOrderByRelationAggregateInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanOrderByRelationAggregateInput
 }
 
 export type ProdukWhereUniqueInput = Prisma.AtLeast<{
@@ -320,6 +322,7 @@ export type ProdukWhereUniqueInput = Prisma.AtLeast<{
   kategori?: Prisma.XOR<Prisma.KategoriScalarRelationFilter, Prisma.KategoriWhereInput>
   pembeliandetal?: Prisma.PembelianDetailListRelationFilter
   penjualandetail?: Prisma.PenjualanDetailListRelationFilter
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanListRelationFilter
 }, "id" | "barcode">
 
 export type ProdukOrderByWithAggregationInput = {
@@ -371,6 +374,7 @@ export type ProdukCreateInput = {
   kategori: Prisma.KategoriCreateNestedOneWithoutProdukInput
   pembeliandetal?: Prisma.PembelianDetailCreateNestedManyWithoutProdukInput
   penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukUncheckedCreateInput = {
@@ -387,6 +391,7 @@ export type ProdukUncheckedCreateInput = {
   updatedAt?: Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedCreateNestedManyWithoutProdukInput
   penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukUpdateInput = {
@@ -402,6 +407,7 @@ export type ProdukUpdateInput = {
   kategori?: Prisma.KategoriUpdateOneRequiredWithoutProdukNestedInput
   pembeliandetal?: Prisma.PembelianDetailUpdateManyWithoutProdukNestedInput
   penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukUncheckedUpdateInput = {
@@ -418,6 +424,7 @@ export type ProdukUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedUpdateManyWithoutProdukNestedInput
   penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukCreateManyInput = {
@@ -589,6 +596,20 @@ export type ProdukUpdateOneRequiredWithoutPembeliandetalNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProdukUpdateToOneWithWhereWithoutPembeliandetalInput, Prisma.ProdukUpdateWithoutPembeliandetalInput>, Prisma.ProdukUncheckedUpdateWithoutPembeliandetalInput>
 }
 
+export type ProdukCreateNestedOneWithoutDetailpenawaran_sInput = {
+  create?: Prisma.XOR<Prisma.ProdukCreateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedCreateWithoutDetailpenawaran_sInput>
+  connectOrCreate?: Prisma.ProdukCreateOrConnectWithoutDetailpenawaran_sInput
+  connect?: Prisma.ProdukWhereUniqueInput
+}
+
+export type ProdukUpdateOneRequiredWithoutDetailpenawaran_sNestedInput = {
+  create?: Prisma.XOR<Prisma.ProdukCreateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedCreateWithoutDetailpenawaran_sInput>
+  connectOrCreate?: Prisma.ProdukCreateOrConnectWithoutDetailpenawaran_sInput
+  upsert?: Prisma.ProdukUpsertWithoutDetailpenawaran_sInput
+  connect?: Prisma.ProdukWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProdukUpdateToOneWithWhereWithoutDetailpenawaran_sInput, Prisma.ProdukUpdateWithoutDetailpenawaran_sInput>, Prisma.ProdukUncheckedUpdateWithoutDetailpenawaran_sInput>
+}
+
 export type ProdukCreateNestedOneWithoutPenjualandetailInput = {
   create?: Prisma.XOR<Prisma.ProdukCreateWithoutPenjualandetailInput, Prisma.ProdukUncheckedCreateWithoutPenjualandetailInput>
   connectOrCreate?: Prisma.ProdukCreateOrConnectWithoutPenjualandetailInput
@@ -615,6 +636,7 @@ export type ProdukCreateWithoutKategoriInput = {
   updatedAt?: Date | string
   pembeliandetal?: Prisma.PembelianDetailCreateNestedManyWithoutProdukInput
   penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukUncheckedCreateWithoutKategoriInput = {
@@ -630,6 +652,7 @@ export type ProdukUncheckedCreateWithoutKategoriInput = {
   updatedAt?: Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedCreateNestedManyWithoutProdukInput
   penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukCreateOrConnectWithoutKategoriInput = {
@@ -686,6 +709,7 @@ export type ProdukCreateWithoutPembeliandetalInput = {
   updatedAt?: Date | string
   kategori: Prisma.KategoriCreateNestedOneWithoutProdukInput
   penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukUncheckedCreateWithoutPembeliandetalInput = {
@@ -701,6 +725,7 @@ export type ProdukUncheckedCreateWithoutPembeliandetalInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukCreateOrConnectWithoutPembeliandetalInput = {
@@ -731,6 +756,7 @@ export type ProdukUpdateWithoutPembeliandetalInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   kategori?: Prisma.KategoriUpdateOneRequiredWithoutProdukNestedInput
   penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukUncheckedUpdateWithoutPembeliandetalInput = {
@@ -746,6 +772,85 @@ export type ProdukUncheckedUpdateWithoutPembeliandetalInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedUpdateManyWithoutProdukNestedInput
+}
+
+export type ProdukCreateWithoutDetailpenawaran_sInput = {
+  nama: string
+  barcode?: string | null
+  harga_jual: number
+  harga_beli: number
+  stok: number
+  jenis?: string
+  keterangan?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  kategori: Prisma.KategoriCreateNestedOneWithoutProdukInput
+  pembeliandetal?: Prisma.PembelianDetailCreateNestedManyWithoutProdukInput
+  penjualandetail?: Prisma.PenjualanDetailCreateNestedManyWithoutProdukInput
+}
+
+export type ProdukUncheckedCreateWithoutDetailpenawaran_sInput = {
+  id?: number
+  nama: string
+  barcode?: string | null
+  harga_jual: number
+  harga_beli: number
+  stok: number
+  jenis?: string
+  keterangan?: string | null
+  kategoriId: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  pembeliandetal?: Prisma.PembelianDetailUncheckedCreateNestedManyWithoutProdukInput
+  penjualandetail?: Prisma.PenjualanDetailUncheckedCreateNestedManyWithoutProdukInput
+}
+
+export type ProdukCreateOrConnectWithoutDetailpenawaran_sInput = {
+  where: Prisma.ProdukWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProdukCreateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedCreateWithoutDetailpenawaran_sInput>
+}
+
+export type ProdukUpsertWithoutDetailpenawaran_sInput = {
+  update: Prisma.XOR<Prisma.ProdukUpdateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedUpdateWithoutDetailpenawaran_sInput>
+  create: Prisma.XOR<Prisma.ProdukCreateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedCreateWithoutDetailpenawaran_sInput>
+  where?: Prisma.ProdukWhereInput
+}
+
+export type ProdukUpdateToOneWithWhereWithoutDetailpenawaran_sInput = {
+  where?: Prisma.ProdukWhereInput
+  data: Prisma.XOR<Prisma.ProdukUpdateWithoutDetailpenawaran_sInput, Prisma.ProdukUncheckedUpdateWithoutDetailpenawaran_sInput>
+}
+
+export type ProdukUpdateWithoutDetailpenawaran_sInput = {
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  harga_jual?: Prisma.IntFieldUpdateOperationsInput | number
+  harga_beli?: Prisma.IntFieldUpdateOperationsInput | number
+  stok?: Prisma.IntFieldUpdateOperationsInput | number
+  jenis?: Prisma.StringFieldUpdateOperationsInput | string
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  kategori?: Prisma.KategoriUpdateOneRequiredWithoutProdukNestedInput
+  pembeliandetal?: Prisma.PembelianDetailUpdateManyWithoutProdukNestedInput
+  penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutProdukNestedInput
+}
+
+export type ProdukUncheckedUpdateWithoutDetailpenawaran_sInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  barcode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  harga_jual?: Prisma.IntFieldUpdateOperationsInput | number
+  harga_beli?: Prisma.IntFieldUpdateOperationsInput | number
+  stok?: Prisma.IntFieldUpdateOperationsInput | number
+  jenis?: Prisma.StringFieldUpdateOperationsInput | string
+  keterangan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  kategoriId?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pembeliandetal?: Prisma.PembelianDetailUncheckedUpdateManyWithoutProdukNestedInput
+  penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukCreateWithoutPenjualandetailInput = {
@@ -760,6 +865,7 @@ export type ProdukCreateWithoutPenjualandetailInput = {
   updatedAt?: Date | string
   kategori: Prisma.KategoriCreateNestedOneWithoutProdukInput
   pembeliandetal?: Prisma.PembelianDetailCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukUncheckedCreateWithoutPenjualandetailInput = {
@@ -775,6 +881,7 @@ export type ProdukUncheckedCreateWithoutPenjualandetailInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedCreateNestedManyWithoutProdukInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedCreateNestedManyWithoutProdukInput
 }
 
 export type ProdukCreateOrConnectWithoutPenjualandetailInput = {
@@ -805,6 +912,7 @@ export type ProdukUpdateWithoutPenjualandetailInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   kategori?: Prisma.KategoriUpdateOneRequiredWithoutProdukNestedInput
   pembeliandetal?: Prisma.PembelianDetailUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukUncheckedUpdateWithoutPenjualandetailInput = {
@@ -820,6 +928,7 @@ export type ProdukUncheckedUpdateWithoutPenjualandetailInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukCreateManyKategoriInput = {
@@ -847,6 +956,7 @@ export type ProdukUpdateWithoutKategoriInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pembeliandetal?: Prisma.PembelianDetailUpdateManyWithoutProdukNestedInput
   penjualandetail?: Prisma.PenjualanDetailUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukUncheckedUpdateWithoutKategoriInput = {
@@ -862,6 +972,7 @@ export type ProdukUncheckedUpdateWithoutKategoriInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pembeliandetal?: Prisma.PembelianDetailUncheckedUpdateManyWithoutProdukNestedInput
   penjualandetail?: Prisma.PenjualanDetailUncheckedUpdateManyWithoutProdukNestedInput
+  detailpenawaran_s?: Prisma.DetailPenawaranPenjualanUncheckedUpdateManyWithoutProdukNestedInput
 }
 
 export type ProdukUncheckedUpdateManyWithoutKategoriInput = {
@@ -885,11 +996,13 @@ export type ProdukUncheckedUpdateManyWithoutKategoriInput = {
 export type ProdukCountOutputType = {
   pembeliandetal: number
   penjualandetail: number
+  detailpenawaran_s: number
 }
 
 export type ProdukCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pembeliandetal?: boolean | ProdukCountOutputTypeCountPembeliandetalArgs
   penjualandetail?: boolean | ProdukCountOutputTypeCountPenjualandetailArgs
+  detailpenawaran_s?: boolean | ProdukCountOutputTypeCountDetailpenawaran_sArgs
 }
 
 /**
@@ -916,6 +1029,13 @@ export type ProdukCountOutputTypeCountPenjualandetailArgs<ExtArgs extends runtim
   where?: Prisma.PenjualanDetailWhereInput
 }
 
+/**
+ * ProdukCountOutputType without action
+ */
+export type ProdukCountOutputTypeCountDetailpenawaran_sArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DetailPenawaranPenjualanWhereInput
+}
+
 
 export type ProdukSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -932,6 +1052,7 @@ export type ProdukSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   kategori?: boolean | Prisma.KategoriDefaultArgs<ExtArgs>
   pembeliandetal?: boolean | Prisma.Produk$pembeliandetalArgs<ExtArgs>
   penjualandetail?: boolean | Prisma.Produk$penjualandetailArgs<ExtArgs>
+  detailpenawaran_s?: boolean | Prisma.Produk$detailpenawaran_sArgs<ExtArgs>
   _count?: boolean | Prisma.ProdukCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["produk"]>
 
@@ -984,6 +1105,7 @@ export type ProdukInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   kategori?: boolean | Prisma.KategoriDefaultArgs<ExtArgs>
   pembeliandetal?: boolean | Prisma.Produk$pembeliandetalArgs<ExtArgs>
   penjualandetail?: boolean | Prisma.Produk$penjualandetailArgs<ExtArgs>
+  detailpenawaran_s?: boolean | Prisma.Produk$detailpenawaran_sArgs<ExtArgs>
   _count?: boolean | Prisma.ProdukCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProdukIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -999,6 +1121,7 @@ export type $ProdukPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     kategori: Prisma.$KategoriPayload<ExtArgs>
     pembeliandetal: Prisma.$PembelianDetailPayload<ExtArgs>[]
     penjualandetail: Prisma.$PenjualanDetailPayload<ExtArgs>[]
+    detailpenawaran_s: Prisma.$DetailPenawaranPenjualanPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1409,6 +1532,7 @@ export interface Prisma__ProdukClient<T, Null = never, ExtArgs extends runtime.T
   kategori<T extends Prisma.KategoriDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.KategoriDefaultArgs<ExtArgs>>): Prisma.Prisma__KategoriClient<runtime.Types.Result.GetResult<Prisma.$KategoriPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   pembeliandetal<T extends Prisma.Produk$pembeliandetalArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Produk$pembeliandetalArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PembelianDetailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   penjualandetail<T extends Prisma.Produk$penjualandetailArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Produk$penjualandetailArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PenjualanDetailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  detailpenawaran_s<T extends Prisma.Produk$detailpenawaran_sArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Produk$detailpenawaran_sArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DetailPenawaranPenjualanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1888,6 +2012,30 @@ export type Produk$penjualandetailArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.PenjualanDetailScalarFieldEnum | Prisma.PenjualanDetailScalarFieldEnum[]
+}
+
+/**
+ * Produk.detailpenawaran_s
+ */
+export type Produk$detailpenawaran_sArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DetailPenawaranPenjualan
+   */
+  select?: Prisma.DetailPenawaranPenjualanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DetailPenawaranPenjualan
+   */
+  omit?: Prisma.DetailPenawaranPenjualanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DetailPenawaranPenjualanInclude<ExtArgs> | null
+  where?: Prisma.DetailPenawaranPenjualanWhereInput
+  orderBy?: Prisma.DetailPenawaranPenjualanOrderByWithRelationInput | Prisma.DetailPenawaranPenjualanOrderByWithRelationInput[]
+  cursor?: Prisma.DetailPenawaranPenjualanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DetailPenawaranPenjualanScalarFieldEnum | Prisma.DetailPenawaranPenjualanScalarFieldEnum[]
 }
 
 /**

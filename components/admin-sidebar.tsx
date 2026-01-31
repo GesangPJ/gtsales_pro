@@ -19,6 +19,8 @@ import {
   IconUsersPlus,
   IconBuildingWarehouse,
   IconDatabasePlus,
+  IconFileInvoice,
+  IconPencilPlus,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { NavUser } from "./nav-user"
@@ -45,7 +47,7 @@ const data = {
     },
     {
       title: "Data Penjualan",
-      url: "/data-penjualan",
+      url: "/penjualan",
       icon: IconDatabaseDollar,
     },
     {
@@ -88,13 +90,13 @@ const data = {
       icon: IconTableFilled,
     },
     {
-      title: "Pembelian Barang",
+      title: "Pembelian Produk",
       url: "/pembelian",
       icon: IconTruckLoading,
     },
     {
       title: "Status Pembelian",
-      url: "/pembelian/status-pembelian",
+      url: "/status-pembelian",
       icon: IconReceipt,
     },
     {
@@ -142,7 +144,21 @@ const data = {
       url:"/distributor/tambah-distributor",
       icon: IconDatabasePlus,
     },
-  ]
+  ],
+  jurnal:[
+    {
+      title:"Data Jurnal",
+      url: "/jurnal",
+      icon: IconFileInvoice,
+
+    },
+    {
+      title: "Tambah Jurnal",
+      url: "/jurnal/tambah",
+      icon: IconPencilPlus,
+
+    },
+  ],
 }
 
 import { AppInfo } from "./app-info"
@@ -179,12 +195,13 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
         <SidebarSeparator />
         <NavMain items={data.navMain} />
         <SidebarSeparator />
-        {/* <span className="px-2">Barang</span> */}
         <NavSecondary items={data.navTambah} className="mt-10px" />
          <SidebarSeparator />
          <NavSecondary items={data.navVendor} className="mt-10px" />
           <SidebarSeparator />
           <NavSecondary items={data.distributor} className="mt-10px" />
+          <SidebarSeparator />
+          <NavSecondary items={data.jurnal} className="mt-10px" />
           <SidebarSeparator />
          <NavSecondary items={data.navAkun} className="mt-10px" />
       </SidebarContent>

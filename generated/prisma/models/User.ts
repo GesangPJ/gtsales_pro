@@ -228,6 +228,7 @@ export type UserWhereInput = {
   pembelian?: Prisma.PembelianListRelationFilter
   penjualan?: Prisma.PenjualanListRelationFilter
   gaji?: Prisma.GajiListRelationFilter
+  penawaranpenjualan?: Prisma.PenawaranPenjualanListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -247,6 +248,7 @@ export type UserOrderByWithRelationInput = {
   pembelian?: Prisma.PembelianOrderByRelationAggregateInput
   penjualan?: Prisma.PenjualanOrderByRelationAggregateInput
   gaji?: Prisma.GajiOrderByRelationAggregateInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -269,6 +271,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   pembelian?: Prisma.PembelianListRelationFilter
   penjualan?: Prisma.PenjualanListRelationFilter
   gaji?: Prisma.GajiListRelationFilter
+  penawaranpenjualan?: Prisma.PenawaranPenjualanListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -320,6 +323,7 @@ export type UserCreateInput = {
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -339,6 +343,7 @@ export type UserUncheckedCreateInput = {
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -358,6 +363,7 @@ export type UserUpdateInput = {
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -377,6 +383,7 @@ export type UserUncheckedUpdateInput = {
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -492,6 +499,20 @@ export type UserUpdateOneRequiredWithoutPembelianNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPembelianInput, Prisma.UserUpdateWithoutPembelianInput>, Prisma.UserUncheckedUpdateWithoutPembelianInput>
 }
 
+export type UserCreateNestedOneWithoutPenawaranpenjualanInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedCreateWithoutPenawaranpenjualanInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPenawaranpenjualanInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPenawaranpenjualanNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedCreateWithoutPenawaranpenjualanInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPenawaranpenjualanInput
+  upsert?: Prisma.UserUpsertWithoutPenawaranpenjualanInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPenawaranpenjualanInput, Prisma.UserUpdateWithoutPenawaranpenjualanInput>, Prisma.UserUncheckedUpdateWithoutPenawaranpenjualanInput>
+}
+
 export type UserCreateNestedOneWithoutPenjualanInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutPenjualanInput, Prisma.UserUncheckedCreateWithoutPenjualanInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutPenjualanInput
@@ -578,6 +599,7 @@ export type UserCreateWithoutPembelianInput = {
   jurnal?: Prisma.JurnalCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPembelianInput = {
@@ -596,6 +618,7 @@ export type UserUncheckedCreateWithoutPembelianInput = {
   jurnal?: Prisma.JurnalUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPembelianInput = {
@@ -630,6 +653,7 @@ export type UserUpdateWithoutPembelianInput = {
   jurnal?: Prisma.JurnalUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPembelianInput = {
@@ -646,6 +670,99 @@ export type UserUncheckedUpdateWithoutPembelianInput = {
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
   jurnal?: Prisma.JurnalUncheckedUpdateManyWithoutUserNestedInput
+  penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
+  gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPenawaranpenjualanInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  alamat?: string | null
+  notelp?: string | null
+  tipe?: string
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  jurnal?: Prisma.JurnalCreateNestedManyWithoutUserInput
+  pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
+  penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
+  gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPenawaranpenjualanInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  alamat?: string | null
+  notelp?: string | null
+  tipe?: string
+  image?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  jurnal?: Prisma.JurnalUncheckedCreateNestedManyWithoutUserInput
+  pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
+  penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
+  gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPenawaranpenjualanInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedCreateWithoutPenawaranpenjualanInput>
+}
+
+export type UserUpsertWithoutPenawaranpenjualanInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedUpdateWithoutPenawaranpenjualanInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedCreateWithoutPenawaranpenjualanInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPenawaranpenjualanInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPenawaranpenjualanInput, Prisma.UserUncheckedUpdateWithoutPenawaranpenjualanInput>
+}
+
+export type UserUpdateWithoutPenawaranpenjualanInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  jurnal?: Prisma.JurnalUpdateManyWithoutUserNestedInput
+  pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
+  penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
+  gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPenawaranpenjualanInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  alamat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notelp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tipe?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  jurnal?: Prisma.JurnalUncheckedUpdateManyWithoutUserNestedInput
+  pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -666,6 +783,7 @@ export type UserCreateWithoutPenjualanInput = {
   jurnal?: Prisma.JurnalCreateNestedManyWithoutUserInput
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPenjualanInput = {
@@ -684,6 +802,7 @@ export type UserUncheckedCreateWithoutPenjualanInput = {
   jurnal?: Prisma.JurnalUncheckedCreateNestedManyWithoutUserInput
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPenjualanInput = {
@@ -718,6 +837,7 @@ export type UserUpdateWithoutPenjualanInput = {
   jurnal?: Prisma.JurnalUpdateManyWithoutUserNestedInput
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPenjualanInput = {
@@ -736,6 +856,7 @@ export type UserUncheckedUpdateWithoutPenjualanInput = {
   jurnal?: Prisma.JurnalUncheckedUpdateManyWithoutUserNestedInput
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutJurnalInput = {
@@ -754,6 +875,7 @@ export type UserCreateWithoutJurnalInput = {
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutJurnalInput = {
@@ -772,6 +894,7 @@ export type UserUncheckedCreateWithoutJurnalInput = {
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutJurnalInput = {
@@ -806,6 +929,7 @@ export type UserUpdateWithoutJurnalInput = {
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutJurnalInput = {
@@ -824,6 +948,7 @@ export type UserUncheckedUpdateWithoutJurnalInput = {
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutGajiInput = {
@@ -842,6 +967,7 @@ export type UserCreateWithoutGajiInput = {
   jurnal?: Prisma.JurnalCreateNestedManyWithoutUserInput
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutGajiInput = {
@@ -860,6 +986,7 @@ export type UserUncheckedCreateWithoutGajiInput = {
   jurnal?: Prisma.JurnalUncheckedCreateNestedManyWithoutUserInput
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutGajiInput = {
@@ -894,6 +1021,7 @@ export type UserUpdateWithoutGajiInput = {
   jurnal?: Prisma.JurnalUpdateManyWithoutUserNestedInput
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutGajiInput = {
@@ -912,6 +1040,7 @@ export type UserUncheckedUpdateWithoutGajiInput = {
   jurnal?: Prisma.JurnalUncheckedUpdateManyWithoutUserNestedInput
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSessionsInput = {
@@ -930,6 +1059,7 @@ export type UserCreateWithoutSessionsInput = {
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -948,6 +1078,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -982,6 +1113,7 @@ export type UserUpdateWithoutSessionsInput = {
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -1000,6 +1132,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAccountsInput = {
@@ -1018,6 +1151,7 @@ export type UserCreateWithoutAccountsInput = {
   pembelian?: Prisma.PembelianCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -1036,6 +1170,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   pembelian?: Prisma.PembelianUncheckedCreateNestedManyWithoutUserInput
   penjualan?: Prisma.PenjualanUncheckedCreateNestedManyWithoutUserInput
   gaji?: Prisma.GajiUncheckedCreateNestedManyWithoutUserInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -1070,6 +1205,7 @@ export type UserUpdateWithoutAccountsInput = {
   pembelian?: Prisma.PembelianUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -1088,6 +1224,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   pembelian?: Prisma.PembelianUncheckedUpdateManyWithoutUserNestedInput
   penjualan?: Prisma.PenjualanUncheckedUpdateManyWithoutUserNestedInput
   gaji?: Prisma.GajiUncheckedUpdateManyWithoutUserNestedInput
+  penawaranpenjualan?: Prisma.PenawaranPenjualanUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1102,6 +1239,7 @@ export type UserCountOutputType = {
   pembelian: number
   penjualan: number
   gaji: number
+  penawaranpenjualan: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1111,6 +1249,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   pembelian?: boolean | UserCountOutputTypeCountPembelianArgs
   penjualan?: boolean | UserCountOutputTypeCountPenjualanArgs
   gaji?: boolean | UserCountOutputTypeCountGajiArgs
+  penawaranpenjualan?: boolean | UserCountOutputTypeCountPenawaranpenjualanArgs
 }
 
 /**
@@ -1165,6 +1304,13 @@ export type UserCountOutputTypeCountGajiArgs<ExtArgs extends runtime.Types.Exten
   where?: Prisma.GajiWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPenawaranpenjualanArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PenawaranPenjualanWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1183,6 +1329,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   pembelian?: boolean | Prisma.User$pembelianArgs<ExtArgs>
   penjualan?: boolean | Prisma.User$penjualanArgs<ExtArgs>
   gaji?: boolean | Prisma.User$gajiArgs<ExtArgs>
+  penawaranpenjualan?: boolean | Prisma.User$penawaranpenjualanArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1233,6 +1380,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   pembelian?: boolean | Prisma.User$pembelianArgs<ExtArgs>
   penjualan?: boolean | Prisma.User$penjualanArgs<ExtArgs>
   gaji?: boolean | Prisma.User$gajiArgs<ExtArgs>
+  penawaranpenjualan?: boolean | Prisma.User$penawaranpenjualanArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1247,6 +1395,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     pembelian: Prisma.$PembelianPayload<ExtArgs>[]
     penjualan: Prisma.$PenjualanPayload<ExtArgs>[]
     gaji: Prisma.$GajiPayload<ExtArgs>[]
+    penawaranpenjualan: Prisma.$PenawaranPenjualanPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1659,6 +1808,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   pembelian<T extends Prisma.User$pembelianArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$pembelianArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PembelianPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   penjualan<T extends Prisma.User$penjualanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$penjualanArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PenjualanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   gaji<T extends Prisma.User$gajiArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$gajiArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GajiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  penawaranpenjualan<T extends Prisma.User$penawaranpenjualanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$penawaranpenjualanArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PenawaranPenjualanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2225,6 +2375,30 @@ export type User$gajiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   take?: number
   skip?: number
   distinct?: Prisma.GajiScalarFieldEnum | Prisma.GajiScalarFieldEnum[]
+}
+
+/**
+ * User.penawaranpenjualan
+ */
+export type User$penawaranpenjualanArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PenawaranPenjualan
+   */
+  select?: Prisma.PenawaranPenjualanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PenawaranPenjualan
+   */
+  omit?: Prisma.PenawaranPenjualanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PenawaranPenjualanInclude<ExtArgs> | null
+  where?: Prisma.PenawaranPenjualanWhereInput
+  orderBy?: Prisma.PenawaranPenjualanOrderByWithRelationInput | Prisma.PenawaranPenjualanOrderByWithRelationInput[]
+  cursor?: Prisma.PenawaranPenjualanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PenawaranPenjualanScalarFieldEnum | Prisma.PenawaranPenjualanScalarFieldEnum[]
 }
 
 /**

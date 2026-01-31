@@ -390,6 +390,8 @@ export const ModelName = {
   Distributor: 'Distributor',
   Pembelian: 'Pembelian',
   PembelianDetail: 'PembelianDetail',
+  PenawaranPenjualan: 'PenawaranPenjualan',
+  DetailPenawaranPenjualan: 'DetailPenawaranPenjualan',
   Penjualan: 'Penjualan',
   PenjualanDetail: 'PenjualanDetail',
   Jurnal: 'Jurnal',
@@ -416,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "kategori" | "produk" | "distributor" | "pembelian" | "pembelianDetail" | "penjualan" | "penjualanDetail" | "jurnal" | "pengaturan" | "toko" | "gaji" | "gajiDetail" | "session" | "account" | "verification" | "jwks"
+    modelProps: "user" | "kategori" | "produk" | "distributor" | "pembelian" | "pembelianDetail" | "penawaranPenjualan" | "detailPenawaranPenjualan" | "penjualan" | "penjualanDetail" | "jurnal" | "pengaturan" | "toko" | "gaji" | "gajiDetail" | "session" | "account" | "verification" | "jwks"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -861,6 +863,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.PembelianDetailCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.PembelianDetailCountAggregateOutputType> | number
+        }
+      }
+    }
+    PenawaranPenjualan: {
+      payload: Prisma.$PenawaranPenjualanPayload<ExtArgs>
+      fields: Prisma.PenawaranPenjualanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PenawaranPenjualanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PenawaranPenjualanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        findFirst: {
+          args: Prisma.PenawaranPenjualanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PenawaranPenjualanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        findMany: {
+          args: Prisma.PenawaranPenjualanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>[]
+        }
+        create: {
+          args: Prisma.PenawaranPenjualanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        createMany: {
+          args: Prisma.PenawaranPenjualanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PenawaranPenjualanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>[]
+        }
+        delete: {
+          args: Prisma.PenawaranPenjualanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        update: {
+          args: Prisma.PenawaranPenjualanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        deleteMany: {
+          args: Prisma.PenawaranPenjualanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PenawaranPenjualanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PenawaranPenjualanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>[]
+        }
+        upsert: {
+          args: Prisma.PenawaranPenjualanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PenawaranPenjualanPayload>
+        }
+        aggregate: {
+          args: Prisma.PenawaranPenjualanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePenawaranPenjualan>
+        }
+        groupBy: {
+          args: Prisma.PenawaranPenjualanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PenawaranPenjualanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PenawaranPenjualanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PenawaranPenjualanCountAggregateOutputType> | number
+        }
+      }
+    }
+    DetailPenawaranPenjualan: {
+      payload: Prisma.$DetailPenawaranPenjualanPayload<ExtArgs>
+      fields: Prisma.DetailPenawaranPenjualanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DetailPenawaranPenjualanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DetailPenawaranPenjualanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        findFirst: {
+          args: Prisma.DetailPenawaranPenjualanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DetailPenawaranPenjualanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        findMany: {
+          args: Prisma.DetailPenawaranPenjualanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>[]
+        }
+        create: {
+          args: Prisma.DetailPenawaranPenjualanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        createMany: {
+          args: Prisma.DetailPenawaranPenjualanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DetailPenawaranPenjualanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>[]
+        }
+        delete: {
+          args: Prisma.DetailPenawaranPenjualanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        update: {
+          args: Prisma.DetailPenawaranPenjualanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        deleteMany: {
+          args: Prisma.DetailPenawaranPenjualanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DetailPenawaranPenjualanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DetailPenawaranPenjualanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>[]
+        }
+        upsert: {
+          args: Prisma.DetailPenawaranPenjualanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DetailPenawaranPenjualanPayload>
+        }
+        aggregate: {
+          args: Prisma.DetailPenawaranPenjualanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDetailPenawaranPenjualan>
+        }
+        groupBy: {
+          args: Prisma.DetailPenawaranPenjualanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DetailPenawaranPenjualanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DetailPenawaranPenjualanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DetailPenawaranPenjualanCountAggregateOutputType> | number
         }
       }
     }
@@ -1801,11 +1951,46 @@ export const PembelianDetailScalarFieldEnum = {
 export type PembelianDetailScalarFieldEnum = (typeof PembelianDetailScalarFieldEnum)[keyof typeof PembelianDetailScalarFieldEnum]
 
 
+export const PenawaranPenjualanScalarFieldEnum = {
+  id: 'id',
+  kode: 'kode',
+  nama_pelanggan: 'nama_pelanggan',
+  alamat_pelanggan: 'alamat_pelanggan',
+  email_pelanggan: 'email_pelanggan',
+  keterangan: 'keterangan',
+  status: 'status',
+  metode: 'metode',
+  jumlahtotal: 'jumlahtotal',
+  diskon: 'diskon',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PenawaranPenjualanScalarFieldEnum = (typeof PenawaranPenjualanScalarFieldEnum)[keyof typeof PenawaranPenjualanScalarFieldEnum]
+
+
+export const DetailPenawaranPenjualanScalarFieldEnum = {
+  id: 'id',
+  idpenawaran_s: 'idpenawaran_s',
+  produkId: 'produkId',
+  harga: 'harga',
+  jumlah: 'jumlah',
+  total: 'total',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DetailPenawaranPenjualanScalarFieldEnum = (typeof DetailPenawaranPenjualanScalarFieldEnum)[keyof typeof DetailPenawaranPenjualanScalarFieldEnum]
+
+
 export const PenjualanScalarFieldEnum = {
   id: 'id',
   kode: 'kode',
   status: 'status',
   metode: 'metode',
+  diskon: 'diskon',
+  keterangan: 'keterangan',
   jumlahtotal: 'jumlahtotal',
   userId: 'userId',
   createdAt: 'createdAt',
@@ -2016,6 +2201,13 @@ export type EnumMetodeBayarFieldRefInput<$PrismaModel> = FieldRefInputType<$Pris
 
 
 /**
+ * Reference to a field of type 'StatusPenawaran'
+ */
+export type EnumStatusPenawaranFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusPenawaran'>
+    
+
+
+/**
  * Reference to a field of type 'StatusPenjualan'
  */
 export type EnumStatusPenjualanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusPenjualan'>
@@ -2143,6 +2335,8 @@ export type GlobalOmitConfig = {
   distributor?: Prisma.DistributorOmit
   pembelian?: Prisma.PembelianOmit
   pembelianDetail?: Prisma.PembelianDetailOmit
+  penawaranPenjualan?: Prisma.PenawaranPenjualanOmit
+  detailPenawaranPenjualan?: Prisma.DetailPenawaranPenjualanOmit
   penjualan?: Prisma.PenjualanOmit
   penjualanDetail?: Prisma.PenjualanDetailOmit
   jurnal?: Prisma.JurnalOmit

@@ -57,7 +57,7 @@ const data = {
     },
     {
       title: "Data Penjualan",
-      url: "/data-penjualan",
+      url: "/penjualan",
       icon: IconDatabaseDollar,
     },
     {
@@ -100,7 +100,7 @@ const data = {
       icon: IconTableFilled,
     },
     {
-      title: "Pembelian Barang",
+      title: "Pembelian Produk",
       url: "/pembelian",
       icon: IconTruckLoading,
     },
@@ -200,7 +200,6 @@ export function OwnerSidebar({user}: OwnerSidebarProps ) {
         <SidebarSeparator />
         <NavMain items={data.navMain} />
         <SidebarSeparator />
-        {/* <span className="px-2">Barang</span> */}
         <NavSecondary items={data.navTambah} className="mt-10px" />
         <SidebarSeparator />
         <NavSecondary items={data.navVendor} className="mt-10px" />
