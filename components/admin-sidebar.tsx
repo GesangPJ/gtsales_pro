@@ -50,13 +50,6 @@ const data = {
       url: "/penjualan",
       icon: IconDatabaseDollar,
     },
-    {
-      title: "Laporan Penjualan",
-      url:"/laporan/penjualan",
-      icon:IconChartHistogram,
-
-    },
-    
     
   ],
   navTambah:[
@@ -99,12 +92,6 @@ const data = {
       url: "/status-pembelian",
       icon: IconReceipt,
     },
-    {
-      title: "Laporan Pembelian",
-      url: "/pembelian/laporan-pembelian",
-      icon: IconChartHistogram,
-    }
-
   ],
   navAkun:[
     {
