@@ -62,12 +62,14 @@ const data = {
     },
     {
       title: "Laporan Penjualan",
-      url:"/laporan/penjualan",
+      url:"/laporan-penjualan",
       icon:IconChartHistogram,
-
     },
-    
-    
+    {
+      title: "Laporan Pembelian",
+      url:"/laporan-pembelian",
+      icon:IconChartHistogram,
+    },
   ],
   navTambah:[
     {
@@ -167,6 +169,7 @@ const data = {
 }
 
 import { AppInfo } from "./app-info"
+import { title } from "node:process"
 
 interface OwnerSidebarProps {
   user: {
